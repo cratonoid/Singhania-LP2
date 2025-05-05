@@ -104,7 +104,41 @@
         }
     });
     const scriptURL = "https://script.google.com/macros/s/AKfycbz6kqAMApiH-2QPgTm3E_awsVA7LTK79C0le1Mg0fMQErX4peOzzoDNZMmwYetMdyeJ/exec";
+    let GlobalOtp = 0;
+    $("#popupOtp").click(function (event){
+        event.preventDefault();
+        let phoneRegex = /^[6-9]\d{9}$/;
+        let whatsappNumber = $("#whatsappNumber").val().trim();
+        if (whatsappNumber === "" || !phoneRegex.test(whatsappNumber)) {
+            swal("Invalid Number", "Please enter a valid 10-digit WhatsApp number.", "error");
+            return;
+        }
+        let otp = Math.floor(1000 + Math.random() * 9000);
+        GlobalOtp = otp;
+        let otpURL = "https://api2.nexgplatforms.com/sms/1/text/query?" +
+        "username=Vama&password=VamA@123!!&from=VAMAXT" +
+        "&to=91" + whatsappNumber + // Use the entered number
+        "&indiaDltContentTemplateId=1207165155088104790" +
+        "&indiaDltPrincipalEntityId=1201161293682304526" +
+        "&indiaDltTelemarketerId=1702171328200125899" +
+        "&text=" + encodeURIComponent(otp + " is your mobile verification code for VAMA");
+        $.ajax({
+            url: otpURL,
+            type: "GET",
+            success: function (response) {
+                if (response.messages && response.messages[0].status.id === 7) {
+                    console.log("OTP sent");
+                    $('#submitApplication').prop('disabled', false);
+                } else {
+                    swal("Invalid Number", "Please verify the number entered in WhatsApp Number", "error");
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("AJAX Error:", error);
+            }
+        });
 
+    });
         $("#submitForm").click(function (event) {
             event.preventDefault();
 
@@ -115,6 +149,8 @@
             let city = $("#city").val().trim();
             let connectTime = $("#connectTime").val();
             let url = sessionStorage.getItem("url");
+            let utm_source = sessionStorage.getItem('utm_source');
+            let otp = $("#otpPopup").val().trim();
            
 
             // Validation Regex
@@ -142,6 +178,12 @@
             if (connectTime === "") {
                 swal("Invalid Time", "Please select a convenient time to connect.", "error");
                 return;
+            }
+            if(utm_source == "paid"){
+                if(GlobalOtp != parseInt(otp)){
+                    swal("Invalid OTP", "Please Enter Valid Otp", "error");
+                    return;
+                }
             }
 
             // Hide Modal on successful validation
