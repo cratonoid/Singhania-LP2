@@ -128,7 +128,7 @@
             success: function (response) {
                 if (response.messages && response.messages[0].status.id === 7) {
                     console.log("OTP sent");
-                    $('#submitApplication').prop('disabled', false);
+                    $('#submitForm').prop('disabled', false);
                 } else {
                     swal("Invalid Number", "Please verify the number entered in WhatsApp Number", "error");
                 }
@@ -151,6 +151,7 @@
             let url = sessionStorage.getItem("url");
             let utm_source = sessionStorage.getItem('utm_source');
             let otp = $("#otpPopup").val().trim();
+            let programs = $("#programSelect").val();
            
 
             // Validation Regex
@@ -179,6 +180,10 @@
                 swal("Invalid Time", "Please select a convenient time to connect.", "error");
                 return;
             }
+            if (programs === "") {
+                swal("Invalid Program", "Please select a Program.", "error");
+                return;
+            }
             if(utm_source == "paid"){
                 if(GlobalOtp != parseInt(otp)){
                     swal("Invalid OTP", "Please Enter Valid Otp", "error");
@@ -195,6 +200,7 @@
                 "Email ID": email,
                 "City of Residence": city,
                 "Convenient Time to Connect": connectTime,
+                "Program Name": programs,
                 "Url" : url,
                 "Lp name" : "Singhania_Law_1"
             };

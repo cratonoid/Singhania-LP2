@@ -1424,16 +1424,38 @@
                                 </div>
                                 
                             </div>
+                            <div class="mb-3">
+                                <label for="programSelect" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">Select Program</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light"><i class="bi bi-list-ul"></i></span>
+                                    <select class="form-select" id="programSelect">
+                                        <option value="">-- Choose a Program --</option>
+                                        <option value="B.Tech in Computer Science">B.Tech in Computer Science</option>
+                                        <option value="BA in Psychology">BA in Psychology</option>
+                                        <option value="BBA">BBA</option>
+                                        <option value="BCA">BCA</option>
+                                        <option value="B.Sc in Agri">B.Sc in Agri</option>
+                                        <option value="B.Design">B.Design</option>
+                                        <option value="M.Tech in Data Science">M.Tech in Data Science</option>
+                                        <option value="MBA in Marketing">MBA in Marketing</option>
+                                        <option value="MCA">MCA</option>
+                                        <option value="Diploma in Graphic Design">Diploma in Graphic Design</option>
+                                        <option value="Diploma in Architecture (D.Arch.)">Diploma in Architecture (D.Arch.)</option>
+                                        <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engineering</option>
+                                        <!-- Add more options as needed -->
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-md-12 sendOtpBtn">
                                 <label class="form-label">Enter OTP</label>
                                 <div class="d-flex">
-                                    <input type="text" class="form-control me-2" id="otpField" placeholder="Enter OTP" required style="
+                                    <input type="text" class="form-control me-2" id="otpPopup" placeholder="Enter OTP" required style="
                                         border-radius: 8px;
                                         padding: 14px;
                                         border: 1px solid #ddd;
                                         box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
                                     ">
-                                    <button type="button" class="btn btn-outline-danger rounded-pill" id="otp" style="white-space: nowrap;">
+                                    <button type="button" class="btn btn-outline-danger rounded-pill" id="popupOtp" style="white-space: nowrap;">
                                         Get OTP
                                     </button>
                                 </div>                                
