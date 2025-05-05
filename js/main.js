@@ -202,7 +202,7 @@
                 "Convenient Time to Connect": connectTime,
                 "Program Name": programs,
                 "Url" : url,
-                "Lp name" : "Singhania_Law_1"
+                "Lp name" : "Singhania_Law_2"
             };
 
             $.ajax({
@@ -298,7 +298,7 @@
                 "City of Residence": city,
                 "Convenient Time to Connect": connectTime,
                 "Url" : url,
-                "Lp name" : "Singhania_Law_1"
+                "Lp name" : "Singhania_Law_2"
             };
 
             $.ajax({
@@ -394,7 +394,7 @@
                 "City of Residence": city,
                 "Convenient Time to Connect": connectTime,
                 "Url" : url,
-                "Lp name" : "Singhania_Law_1"
+                "Lp name" : "Singhania_Law_2"
             };
 
             $.ajax({
