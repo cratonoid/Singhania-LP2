@@ -103,7 +103,7 @@
             }
         }
     });
-    const scriptURL = "https://script.google.com/macros/s/AKfycbz6kqAMApiH-2QPgTm3E_awsVA7LTK79C0le1Mg0fMQErX4peOzzoDNZMmwYetMdyeJ/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbylnH5_GvQgOMIObtYf-RzaPBtzR4bicwzI9KZ4dI_bUXCdOeYVU4MzRr7mA7GUQmZS/exec";
     let GlobalOtp = 0;
     $("#popupOtp").click(function (event){
         event.preventDefault();
@@ -229,7 +229,7 @@
                     city: city,
                     address: "address", // Replace with actual address if available
                     otherparams: [
-                        { "meta_key": "lead_name", "meta_value": "SU_2025_EDXSO_DIGITAL" },
+                        { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
                         { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
                 }),
@@ -326,7 +326,7 @@
                     city: city,
                     address: "address", // Replace with actual address if available
                     otherparams: [
-                        { "meta_key": "lead_name", "meta_value": "SU_2025_EDXSO_DIGITAL" },
+                        { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
                         { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
                 }),
@@ -422,7 +422,7 @@
                     city: city,
                     address: "address", // Replace with actual address if available
                     otherparams: [
-                        { "meta_key": "lead_name", "meta_value": "SU_2025_EDXSO_DIGITAL" },
+                        { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
                         { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
                 }),
