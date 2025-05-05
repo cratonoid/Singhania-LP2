@@ -99,7 +99,7 @@
 <style>
 /* Default Background for Desktop */
 .heroSection {
-    background: url('img/banner.jpg') no-repeat center center;
+    background: url('img/banner.png') no-repeat center center;
     background-size: 100% auto; /* Full width, auto height */
     width: 100vw; /* Full viewport width */
     height: auto; 
@@ -109,7 +109,7 @@
 /* Background for Mobile */
 @media (max-width: 768px) {
     .heroSection {
-        background: url('img/banner_mob.jpg') no-repeat top center; /* Align to top */
+        background: url('img/banner_mob.png') no-repeat top center; /* Align to top */
         background-size: 100% auto;
         height: auto; 
         aspect-ratio: 9 / 16;
@@ -138,7 +138,7 @@
 /* Apply Button Position */
 .apply-btn {
     position: absolute;
-    bottom: 110px;
+    bottom: 40px;
     left: 30px;
     z-index: 2;
     border-radius: 10px; 
@@ -523,12 +523,48 @@
         💸 Fee/Semester: ₹20,000<br>
         <a href="#" class="apply-button">Apply Now</a>
       </div>
+
+      <div class="course-name" onclick="toggleDetails(this)">BBA</div>
+      <div class="course-details">
+        Program Name: BBA<br>
+        🕒 Duration: 3 years<br>
+        🎓 Eligibility: 10+2<br>
+        💸 Fee/Semester: ₹20,000<br>
+        <a href="#" class="apply-button">Apply Now</a>
+      </div>
+
+      <div class="course-name" onclick="toggleDetails(this)">BCA</div>
+      <div class="course-details">
+        Program Name: BCA<br>
+        🕒 Duration: 3 years<br>
+        🎓 Eligibility: 10+2<br>
+        💸 Fee/Semester: ₹20,000<br>
+        <a href="#" class="apply-button">Apply Now</a>
+      </div>
+
+      <div class="course-name" onclick="toggleDetails(this)">B.Sc in Agri</div>
+      <div class="course-details">
+        Program Name: B.Sc in Agri<br>
+        🕒 Duration: 4 years<br>
+        🎓 Eligibility: 10+2<br>
+        💸 Fee/Semester: ₹30,000<br>
+        <a href="#" class="apply-button">Apply Now</a>
+      </div>
+
+      <div class="course-name" onclick="toggleDetails(this)">B.Design</div>
+      <div class="course-details">
+        Program Name: B.Design<br>
+        🕒 Duration: 4 years<br>
+        🎓 Eligibility: 10+2<br>
+        💸 Fee/Semester: ₹30,000<br>
+        <a href="#" class="apply-button">Apply Now</a>
+      </div>
     </div>
     
     <!-- PG Programs -->
     <button class="accordion">PG Programs<span class="arrow">&#9660;</span></button>
     <div class="panel">
-      <div class="course-name" onclick="toggleDetails(this)">M.Tech in Data Science<span class="arrow">&#9660;</span></div>
+      <div class="course-name" onclick="toggleDetails(this)">M.Tech in Data Science</div>
       <div class="course-details">
         Program Name: M.Tech in Data Science<br>
         🕒 Duration: 2 years<br>
@@ -545,6 +581,15 @@
         💸 Fee/Semester: ₹50,000<br>
         <a href="#" class="apply-button">Apply Now</a>
       </div>
+
+      <div class="course-name" onclick="toggleDetails(this)">MCA</div>
+      <div class="course-details">
+        Program Name: MCA<br>
+        🕒 Duration: 2 years<br>
+        🎓 Eligibility: Any UG Degree<br>
+        💸 Fee/Semester: ₹1,20,000<br>
+        <a href="#" class="apply-button">Apply Now</a>
+      </div>
     </div>
     
     <!-- Diploma Programs -->
@@ -558,79 +603,124 @@
         💸 Fee/Semester: ₹15,000<br>
         <a href="#" class="apply-button">Apply Now</a>
       </div>
+
+      <div class="course-name" onclick="toggleDetails(this)">Diploma in Architecture (D.Arch.)</div>
+      <div class="course-details">
+        Program Name: Diploma in Architecture (D.Arch.)<br>
+        🕒 Duration: 3 year<br>
+        🎓 Eligibility: 10+2<br>
+        💸 Fee/Semester: ₹30,000<br>
+        <a href="#" class="apply-button">Apply Now</a>
+      </div>
+
+      <div class="course-name" onclick="toggleDetails(this)">Diploma in Mechanical Engineering</div>
+      <div class="course-details">
+        Program Name: Diploma in Mechanical Engineering<br>
+        🕒 Duration: 3 year<br>
+        🎓 Eligibility: 10+2<br>
+        💸 Fee/Semester: ₹20,000<br>
+        <a href="#" class="apply-button">Apply Now</a>
+      </div>
     </div>
 
 </div>
 
 
 <style>
-    .accordion {
-  background-color: #f1f1f1;
-  cursor: pointer;
-  padding: 14px 20px;
-  margin-bottom: 5px;
+ .accordion {
+  background-color: #800000; /* Deep maroon */
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 16px 24px;
+  margin-bottom: 12px;
   border: none;
+  border-radius: 999px; /* Full pill shape */
+  cursor: pointer;
   text-align: left;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 4px 10px rgba(128, 0, 0, 0.2);
+  position: relative;
+  transition: all 0.35s ease;
+}
+
+.accordion:first-of-type {
+  margin-top: 16px;
+}
+
+.accordion:hover {
+  background-color: #a30000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  transform: scale(1.03);
+}
+
+.accordion.active {
+  background-color: #990000;
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.4);
 }
 
 .accordion .arrow {
+  font-size: 18px;
   transition: transform 0.3s ease;
-  font-size: 14px;
 }
 
-/* Rotate arrow when active */
 .accordion.active .arrow {
   transform: rotate(180deg);
 }
 
-.accordion:hover {
-  background-color: #ddd;
-}
-
 .panel {
-  padding: 0 20px;
+  padding: 0 24px 18px;
   display: none;
-  background-color: #fafafa;
-  overflow: hidden;
-  border-left: 3px solid #007bff;
-  margin-bottom: 10px;
+  background-color: #fff4f4;
+  border-left: 5px solid #800000;
+  border-radius: 0 0 16px 16px;
+  margin-top: -8px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 6px rgba(128, 0, 0, 0.1);
 }
 
 .course-name {
   font-weight: 600;
   margin: 12px 0 5px;
+  color: #800000;
   cursor: pointer;
 }
 
+.course-name:hover {
+  color: #a30000;
+}
+
 .course-details {
-  margin-left: 10px;
+  margin-left: 12px;
   display: none;
-  border-left: 2px solid #007bff;
-  padding-left: 10px;
+  border-left: 3px solid #800000;
+  padding-left: 12px;
   margin-bottom: 10px;
+  font-size: 15px;
+  color: #4a4a4a;
 }
 
 .apply-button {
   display: inline-block;
-  margin-top: 8px;
-  background-color: #007bff;
+  margin-top: 12px;
+  background-color: #800000;
   color: #fff;
-  padding: 8px 14px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 999px;
   font-size: 14px;
+  font-weight: bold;
   text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
 }
 
 .apply-button:hover {
-  background-color: #0056b3;
+  background-color: #a30000;
+  box-shadow: 0 0 16px rgba(255, 0, 0, 0.4);
+  transform: scale(1.05);
 }
 
 </style>
@@ -1740,7 +1830,7 @@
 <!-- Available Scholarships Section End -->
     
 <!-- Form Section Start -->
-<!-- <div class="container py-5">
+<div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card p-4 border-0 shadow-lg" style="
@@ -1843,7 +1933,7 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <!-- Form Section End -->
 
 
