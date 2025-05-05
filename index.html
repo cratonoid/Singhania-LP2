@@ -108,7 +108,7 @@
 <style>
 /* Default Background for Desktop */
 .heroSection {
-    background: url('img/banner.png') no-repeat center center;
+    background: url('img/banner.jpg') no-repeat center center;
     background-size: 100% auto; /* Full width, auto height */
     width: 100vw; /* Full viewport width */
     height: auto; 
@@ -118,7 +118,7 @@
 /* Background for Mobile */
 @media (max-width: 768px) {
     .heroSection {
-        background: url('img/banner_mob.png') no-repeat top center; /* Align to top */
+        background: url('img/banner_mob.jpg') no-repeat top center; /* Align to top */
         background-size: 100% auto;
         height: auto; 
         aspect-ratio: 9 / 16;
@@ -140,7 +140,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.102);
     z-index: 1;
 }
 
@@ -500,12 +500,13 @@
 <!-- Programs Start  -->
 
 <div class="container">
-    <h1 class="mb-5" style="
+    <h1 class="mb-5 scholarship" style="
                     font-family: 'Chunk Five', serif;
-                    font-size: 22px;
+                    font-size: 25px;
                     color: #670a0a;
                     font-weight: 700;
                     text-transform: uppercase;
+                    text-align: center;
                 ">Explore Our Programs</h1>
     
     
@@ -513,9 +514,9 @@
  
 
     <!-- UG Programs -->
-    <button class="accordion">UG Programs<span class="arrow">&#9660;</span></button>
+    <button class="accordion" style="align-content: center;">UG Programs<span class="arrow">&#9660;</span></button>
     <div class="panel">
-      <div class="course-name" onclick="toggleDetails(this)">B.Tech in Computer Science</div>
+      <div class="course-name" onclick="toggleDetails(this)">B.Tech (CS, ME, CE, EE, Mining)</div>
       <div class="course-details">
         Duration: 4 years<br>
         Eligibility: 10+2 with PCM<br>
@@ -798,7 +799,7 @@
   .admission-process-vertical .title {
     text-align: center;
     color: #800000;
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 800;
     margin-bottom: 40px;
     text-transform: uppercase;
@@ -852,7 +853,7 @@
 
 
 <section class="container my-5">
-    <h2 class="text-center mb-4" style="font-family: 'Chunk Five', serif; font-size: 22px; color: #670a0a; font-weight: 700; text-transform: uppercase">
+    <h2 class="scholarship text-center mb-4" style="font-family: 'Chunk Five', serif; font-size: 25px; color: #670a0a; font-weight: 700; text-transform: uppercase">
       🎓 Scholarships & Fee Concessions for 2025
     </h2>
   
@@ -943,6 +944,88 @@
 <!-- Scholarships End  -->
 
 
+<!-- Hostel Start -->
+
+<section class="container my-5">
+    <!-- Heading -->
+    <h2 style="font-family: 'Chunk Five', serif; font-size: 25px; color: #670a0a; font-weight: 700; text-transform: uppercase; text-align: center;">
+      🏠 Hostel Accommodation
+    </h2>
+  
+    <div class="row my-4 align-items-center">
+      <!-- Image on the Left -->
+      <div class="col-md-6">
+        <img src="img/hostel.jpg" alt="Hostel Facilities" class="img-fluid rounded shadow-sm">
+      </div>
+  
+      <!-- Content on the Right -->
+      <div class="col-md-6">
+        <p style="font-family: 'Poppins', sans-serif; font-size: 18px; text-align: center; margin-top: 1rem;">
+          Comfortable and safe living spaces with shared rooms, clean mess facilities, 24x7 healthcare, separate gym for boys and girls, on-campus hospital, and recreational zones.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* To make the image responsive and fit well */
+section .col-md-6 img {
+  width: 100%;
+  height: auto; /* Ensures the aspect ratio is maintained */
+  max-height: 400px; /* Adjust height to prevent oversized image */
+  object-fit: cover; /* Ensures the image doesn't stretch and is centered */
+}
+
+    @media (min-width: 768px) {
+  .row.my-4 {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .row.my-4 .col-md-6 {
+    flex: 1;
+  }
+  .scholarship {
+    font-size: 22px;
+  }
+}
+
+  </style>
+  
+<!-- Hostel End  -->
+
+
+
+<section class="container my-5 text-center">
+    <!-- Heading -->
+    <h2 style="font-family: 'Chunk Five', serif; font-size: 22px; color: #670a0a; font-weight: 700; text-transform: uppercase;">
+      Limited Seats. Register Now for Admission 2025
+    </h2>
+  
+    <!-- Description -->
+    <p style="font-family: 'Poppins', sans-serif; font-size: 18px;" class="my-3">
+      Fill out the form to get a callback from our admissions team and reserve your seat for the upcoming session.
+    </p>
+  
+    <!-- Apply Now Button -->
+    <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-center">
+            <a href="#" class="btn btn-primary px-4 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#detailsModal" style="
+                font-size: 18px;
+                font-weight: 600;
+                background-color: #831515;
+                color: #ffffff;
+                border-radius: 30px;
+                box-shadow: 0 4px 8px rgba(255, 0, 60, 0.382);
+                transition: all 0.4s ease;
+            "
+            onmouseover="this.style.backgroundColor='#db2e2e';"
+            onmouseout="this.style.backgroundColor='#831515';">
+                Apply Now<i class="fa fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+  </section>
 
 
 <!-- About Start -->
@@ -2063,7 +2146,7 @@
                     </p>
                     <p class="mb-2">
                         <i class="fa fa-globe me-3"></i>
-                        <a href="https://www.singhaniauniversity.co.in" target="_blank" class="text-light">www.singhaniauniversity.co.in</a>
+                        <a href="https://www.singhaniauniversity.co.in" target="_blank" class="text-light">www.singhaniauniversity.ac.in</a>
                     </p>
                 </div>
     
