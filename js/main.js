@@ -129,6 +129,7 @@
                 if (response.messages && response.messages[0].status.id === 7) {
                     console.log("OTP sent");
                     $('#submitForm').prop('disabled', false);
+                    $('#otpMessage').css('display', 'block');
                 } else {
                     swal("Invalid Number", "Please verify the number entered in WhatsApp Number", "error");
                 }
