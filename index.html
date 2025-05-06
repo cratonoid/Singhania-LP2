@@ -3,13 +3,16 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Singhania University</title>
+    <title>Best UGC-approved university in Rajasthan | Affordable B.Tech & MBA Programs 2025</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
     <meta name="facebook-domain-verification" content="kuh4f98ek65a3cssu2clz4n7qnlb8y" />
     <meta name="facebook-domain-verification" content="7sonb5vkbvgcrcsic2hbt2gdlmnrre" />
     <meta name="facebook-domain-verification" content="d2jks4eyu9742el01t5vjl4cffynaz" />
+
+    <meta name="description" content="Apply now to Singhania University for 2025. Scholarships available for engineering, commerce, and science students.">
+
 
     <!-- Favicon -->
     <link href="img/logo.png" rel="icon">
@@ -27,6 +30,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
 
 
     <!-- Libraries Stylesheet -->
@@ -43,32 +48,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17009372204"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17009372204');
-</script>
-    <!-- Meta Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1710266089914779');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1710266089914779&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+  
 </head>
 
 <body>
@@ -103,7 +83,7 @@
 <style>
 /* Default Background for Desktop */
 .heroSection {
-    background: url('img/banner.png') no-repeat center center;
+    background: url('img/banner.jpg') no-repeat center center;
     background-size: 100% auto; /* Full width, auto height */
     width: 100vw; /* Full viewport width */
     height: auto; 
@@ -113,7 +93,7 @@
 /* Background for Mobile */
 @media (max-width: 768px) {
     .heroSection {
-        background: url('img/banner_mob.png') no-repeat top center; /* Align to top */
+        background: url('img/banner_mob.jpg') no-repeat top center; /* Align to top */
         background-size: 100% auto;
         height: auto; 
         aspect-ratio: 9 / 16;
@@ -135,7 +115,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.102);
     z-index: 1;
 }
 
@@ -495,12 +475,13 @@
 <!-- Programs Start  -->
 
 <div class="container">
-    <h1 class="mb-5" style="
+    <h1 class="mb-5 scholarship" style="
                     font-family: 'Chunk Five', serif;
-                    font-size: 22px;
+                    font-size: 25px;
                     color: #670a0a;
                     font-weight: 700;
                     text-transform: uppercase;
+                    text-align: center;
                 ">Explore Our Programs</h1>
     
     
@@ -508,14 +489,14 @@
  
 
     <!-- UG Programs -->
-    <button class="accordion">UG Programs<span class="arrow">&#9660;</span></button>
+    <button class="accordion" style="align-content: center;">UG Programs<span class="arrow">&#9660;</span></button>
     <div class="panel">
-      <div class="course-name" onclick="toggleDetails(this)">B.Tech in Computer Science</div>
+      <div class="course-name" onclick="toggleDetails(this)">B.Tech (CS, ME, CE, EE, Mining)</div>
       <div class="course-details">
         Duration: 4 years<br>
         Eligibility: 10+2 with PCM<br>
         Fee/Semester: ₹30,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button"data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
     
       <div class="course-name" onclick="toggleDetails(this)">BA in Psychology</div>
@@ -523,7 +504,7 @@
         Duration: 3 years<br>
         Eligibility: 10+2<br>
         Fee/Semester: ₹20,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
 
       <div class="course-name" onclick="toggleDetails(this)">BBA</div>
@@ -531,7 +512,7 @@
         Duration: 3 years<br>
         Eligibility: 10+2<br>
         Fee/Semester: ₹20,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
 
       <div class="course-name" onclick="toggleDetails(this)">BCA</div>
@@ -539,7 +520,7 @@
         Duration: 3 years<br>
         Eligibility: 10+2<br>
         Fee/Semester: ₹20,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
 
       <div class="course-name" onclick="toggleDetails(this)">B.Sc in Agri</div>
@@ -547,7 +528,7 @@
         Duration: 4 years<br>
         Eligibility: 10+2<br>
         Fee/Semester: ₹30,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
 
       <div class="course-name" onclick="toggleDetails(this)">B.Design</div>
@@ -555,7 +536,7 @@
         Duration: 4 years<br>
         Eligibility: 10+2<br>
         Fee/Semester: ₹30,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
     </div>
     
@@ -567,7 +548,7 @@
         Duration: 2 years<br>
         Eligibility: B.Tech in relevant field<br>
         Fee/Semester: ₹40,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
     
       <div class="course-name" onclick="toggleDetails(this)">MBA in Marketing</div>
@@ -575,7 +556,7 @@
         Duration: 2 years<br>
         Eligibility: Any UG Degree<br>
         Fee/Semester: ₹50,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
 
       <div class="course-name" onclick="toggleDetails(this)">MCA</div>
@@ -583,7 +564,7 @@
         Duration: 2 years<br>
         Eligibility: Any UG Degree<br>
         Fee/Semester: ₹1,20,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
     </div>
     
@@ -595,7 +576,7 @@
         Duration: 1 year<br>
         Eligibility: 10+2<br>
         Fee/Semester: ₹15,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
 
       <div class="course-name" onclick="toggleDetails(this)">Diploma in Architecture (D.Arch.)</div>
@@ -603,7 +584,7 @@
         Duration: 3 year<br>
         Eligibility: 10+2<br>
         Fee/Semester: ₹30,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
 
       <div class="course-name" onclick="toggleDetails(this)">Diploma in Mechanical Engineering</div>
@@ -611,7 +592,7 @@
         Duration: 3 year<br>
         Eligibility: 10+2<br>
         Fee/Semester: ₹20,000<br>
-        <a href="#" class="apply-button">Apply Now</a>
+        <a href="#" class="apply-button" data-bs-toggle="modal" data-bs-target="#detailsModal">Apply Now</a>
       </div>
     </div>
 </div>
@@ -793,7 +774,7 @@
   .admission-process-vertical .title {
     text-align: center;
     color: #800000;
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 800;
     margin-bottom: 40px;
     text-transform: uppercase;
@@ -847,14 +828,14 @@
 
 
 <section class="container my-5">
-    <h2 class="text-center mb-4" style="font-family: 'League Spartan', sans-serif; font-size: 25px;">
+    <h2 class="scholarship text-center mb-4" style="font-family: 'Chunk Five', serif; font-size: 25px; color: #670a0a; font-weight: 700; text-transform: uppercase">
       🎓 Scholarships & Fee Concessions for 2025
     </h2>
-    <div class="row g-4 justify-content-center">
   
+    <div class="row g-4 justify-content-center">
       <!-- Sports Scholarship -->
-      <div class="col-md-6 col-lg-3">
-        <div class="scholarship-card bg-light border-success">
+      <div class="col-md-6 col-lg-3 d-flex">
+        <div class="scholarship-card bg-light border-success h-100 w-100">
           <div class="icon-box bg-success text-white">
             <i class="bi bi-trophy-fill"></i>
           </div>
@@ -864,8 +845,8 @@
       </div>
   
       <!-- Female Students -->
-      <div class="col-md-6 col-lg-3">
-        <div class="scholarship-card bg-light border-primary">
+      <div class="col-md-6 col-lg-3 d-flex">
+        <div class="scholarship-card bg-light border-primary h-100 w-100">
           <div class="icon-box bg-primary text-white">
             <i class="bi bi-gender-female"></i>
           </div>
@@ -875,8 +856,8 @@
       </div>
   
       <!-- Academic Merit -->
-      <div class="col-md-6 col-lg-3">
-        <div class="scholarship-card bg-light border-warning">
+      <div class="col-md-6 col-lg-3 d-flex">
+        <div class="scholarship-card bg-light border-warning h-100 w-100">
           <div class="icon-box bg-warning text-dark">
             <i class="bi bi-mortarboard-fill"></i>
           </div>
@@ -889,56 +870,137 @@
       </div>
   
       <!-- Special Concessions -->
-      <div class="col-md-6 col-lg-3">
-        <div class="scholarship-card bg-light border-danger">
+      <div class="col-md-6 col-lg-3 d-flex">
+        <div class="scholarship-card bg-light border-danger h-100 w-100">
           <div class="icon-box bg-danger text-white">
-            <i class="bi bi-hand-heart-fill"></i>
+            <i class="bi bi-heart-fill"></i>
           </div>
           <h5>Special Support</h5>
           <p>Fee relief for <strong>rural students</strong> and those facing <strong>personal hardships</strong>.</p>
         </div>
       </div>
-  
     </div>
   </section>
   
+  
 
 
 
-    <style>
-.scholarship-card {
-  border-left: 5px solid;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-}
+  <style>
+    .scholarship-card {
+      border-left: 5px solid;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+    }
 
-.scholarship-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-}
+    .scholarship-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    }
 
-.icon-box {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 15px auto;
-  font-size: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>
-
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px auto;
+      font-size: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
 
   
 
 <!-- Scholarships End  -->
 
 
+<!-- Hostel Start -->
+
+<section class="container my-5">
+    <!-- Heading -->
+    <h2 style="font-family: 'Chunk Five', serif; font-size: 25px; color: #670a0a; font-weight: 700; text-transform: uppercase; text-align: center;">
+      🏠 Hostel Accommodation
+    </h2>
+  
+    <div class="row my-4 align-items-center">
+      <!-- Image on the Left -->
+      <div class="col-md-6">
+        <img src="img/hostel.jpg" alt="Hostel Facilities" class="img-fluid rounded shadow-sm">
+      </div>
+  
+      <!-- Content on the Right -->
+      <div class="col-md-6">
+        <p style="font-family: 'Poppins', sans-serif; font-size: 18px; text-align: center; margin-top: 1rem;">
+          Comfortable and safe living spaces with shared rooms, clean mess facilities, 24x7 healthcare, separate gym for boys and girls, on-campus hospital, and recreational zones.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* To make the image responsive and fit well */
+section .col-md-6 img {
+  width: 100%;
+  height: auto; /* Ensures the aspect ratio is maintained */
+  max-height: 400px; /* Adjust height to prevent oversized image */
+  object-fit: cover; /* Ensures the image doesn't stretch and is centered */
+}
+
+    @media (min-width: 768px) {
+  .row.my-4 {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .row.my-4 .col-md-6 {
+    flex: 1;
+  }
+  .scholarship {
+    font-size: 22px;
+  }
+}
+
+  </style>
+  
+<!-- Hostel End  -->
+
+
+
+<section class="container my-5 text-center">
+    <!-- Heading -->
+    <h2 style="font-family: 'Chunk Five', serif; font-size: 22px; color: #670a0a; font-weight: 700; text-transform: uppercase;">
+      Limited Seats. Register Now for Admission 2025
+    </h2>
+  
+    <!-- Description -->
+    <p style="font-family: 'Poppins', sans-serif; font-size: 18px;" class="my-3">
+      Fill out the form to get a callback from our admissions team and reserve your seat for the upcoming session.
+    </p>
+  
+    <!-- Apply Now Button -->
+    <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-center">
+            <a href="#" class="btn btn-primary px-4 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#detailsModal" style="
+                font-size: 18px;
+                font-weight: 600;
+                background-color: #831515;
+                color: #ffffff;
+                border-radius: 30px;
+                box-shadow: 0 4px 8px rgba(255, 0, 60, 0.382);
+                transition: all 0.4s ease;
+            "
+            onmouseover="this.style.backgroundColor='#db2e2e';"
+            onmouseout="this.style.backgroundColor='#831515';">
+                Apply Now<i class="fa fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+  </section>
 
 
 <!-- About Start -->
@@ -1854,9 +1916,11 @@
 
 
 <!-- Available Scholarships Section End -->
-    
+   
+
+
 <!-- Form Section Start -->
-<div class="container py-5">
+<!-- <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card p-4 border-0 shadow-lg" style="
@@ -1959,7 +2023,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Form Section End -->
 
 
@@ -2015,6 +2079,22 @@
         .apply-link:hover {
             color: #831515 !important;
         }
+    
+        .footer p, .footer a {
+            white-space: normal;
+            word-wrap: break-word;
+            color: #ffffff;
+        }
+        .footer .d-flex {
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.footer a, .footer div {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
     </style>
     
     <div class="container-fluid bg-dark text-light footer pt-3 mt-1 wow fadeIn" data-wow-delay="0.1s">
@@ -2022,19 +2102,32 @@
             <div class="row g-5">
                 <div class="col-lg-6 col-md-6">
                     <h4 class="text-white mb-3">Contact Us</h4>
-                    <p class="mb-2">
-                        <i class="fa fa-map-marker-alt me-3"></i>
-                        Singhania University, Pacheri Bari, Jhunjhunu - 333515, Rajasthan, India
-                    </p>
-                    <p class="mb-2">
-                        <i class="fa fa-envelope me-3"></i>
-                        admissions@singhaniauniversity.com
-                    </p>
+                    <div class="mb-2 d-flex">
+                        <i class="fa fa-map-marker-alt me-3 pt-1"></i>
+                        <div>
+                          <b>Singhania University</b><br>Pacheri Bari, Jhunjhunu - 333515, Rajasthan, India
+                        </div>
+                      </div>
+                      
+                      <div class="mb-2 d-flex">
+                        <i class="fa fa-envelope pt-1" style="min-width: 30px;"></i>
+                        <div class="flex-grow-1">
+                          <a href="mailto:admissions@singhaniauniversity.com" class="text-light">
+                            admissions@singhaniauniversity.com
+                          </a>
+                        </div>
+                      </div>
+                      
                     <p class="mb-2">
                         <i class="fa fa-phone-alt me-3"></i>
-                        +91 9355168880
+                        <a href="tel:+919355168880" class="text-light">+91 9355168880</a>
+                    </p>
+                    <p class="mb-2">
+                        <i class="fa fa-globe me-3"></i>
+                        <a href="https://www.singhaniauniversity.co.in" target="_blank" class="text-light">www.singhaniauniversity.ac.in</a>
                     </p>
                 </div>
+    
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Admission Open</h4>
                     <a href="#" class="btn btn-primary px-3 py-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#detailsModal">
@@ -2043,16 +2136,18 @@
                 </div>
             </div>
         </div>
+    
         <div class="container">
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Singhania University</a>, All Right Reserved.
+                        &copy; <a class="border-bottom text-light" href="#">Singhania University</a>, All Rights Reserved.
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
     
     <!-- Footer End -->
 
@@ -2148,10 +2243,15 @@ function toggleDetails(element) {
 //     if (select3) populateDropdown(select3);
 // });
 </script>
+<a href="https://wa.me/919355168880" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 <a href="#" class="floating-apply-btn btn btn-primary px-4 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#detailsModal" onmouseover="this.style.backgroundColor='#db2e2e';"
 onmouseout="this.style.backgroundColor='#831515';">
     Apply Now
   </a>
+  
+  
 
   <style>
     .floating-apply-btn {
@@ -2168,6 +2268,24 @@ onmouseout="this.style.backgroundColor='#831515';">
   transition: background-color 0.3s ease;
 }
 
+.whatsapp-float {
+  position: fixed;
+  bottom: 90px; /* Adjust based on your Apply button */
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  font-size: 28px;
+  padding: 15px;
+  border-radius: 30%;
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebe5b;
+}
 
 
   </style>
