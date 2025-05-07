@@ -1462,6 +1462,23 @@ section .col-md-6 img {
                                     <input type="tel" class="form-control" id="whatsappNumber" placeholder="Enter your WhatsApp number">
                                 </div>
                             </div>
+                            <div class="col-md-12 mb-3 sendOtpBtn">
+                                <label class="form-label">Enter OTP</label>
+                                <div class="d-flex">
+                                    <input type="text" class="form-control me-2" id="otpPopup" placeholder="Enter OTP" required style="
+                                        border-radius: 8px;
+                                        padding: 14px;
+                                        border: 1px solid #ddd;
+                                        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+                                    ">
+                                    <button type="button" class="btn btn-outline-danger rounded-pill" id="popupOtp" style="white-space: nowrap;">
+                                        Get OTP
+                                    </button>
+                                </div>
+                                <div id="otpMessage" class="mt-2 text-success" style="display: none; font-weight: 500;">
+                                    OTP sent successfully!
+                                </div>                                
+                            </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">Email ID</label>
                                 <div class="input-group">
@@ -1469,7 +1486,7 @@ section .col-md-6 img {
                                     <input type="email" class="form-control" id="email" placeholder="Enter your email">
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 partnerCity">
                                 <label for="city" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">City of Residence</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="bi bi-geo-alt"></i></span>
@@ -1487,43 +1504,24 @@ section .col-md-6 img {
                                 
                             </div>
                             <div class="mb-3">
-                                <label for="programSelect" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">Select Program</label>
+                                <label for="degreeSelect" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">Select Program</label>
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text bg-light"><i class="bi bi-mortarboard"></i></span>
+                                    <select class="form-select" id="degreeSelect">
+                                        <option value="">-- Choose a Program --</option>
+                                        <option value="ug">Undergraduate</option>
+                                        <option value="pg">Postgraduate</option>
+                                        <option value="diploma">Diploma / Certificate</option>
+                                    </select>
+                                </div>
+                            
+                                <label for="programSelect" class="form-label mt-3" style="font-family: 'league spartan', serif; font-size: 18px;">Select Degree</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="bi bi-list-ul"></i></span>
                                     <select class="form-select" id="programSelect">
-                                        <option value="">-- Choose a Program --</option>
-                                        <option value="B.Tech in Computer Science">B.Tech in Computer Science</option>
-                                        <option value="BA in Psychology">BA in Psychology</option>
-                                        <option value="BBA">BBA</option>
-                                        <option value="BCA">BCA</option>
-                                        <option value="B.Sc in Agri">B.Sc in Agri</option>
-                                        <option value="B.Design">B.Design</option>
-                                        <option value="M.Tech in Data Science">M.Tech in Data Science</option>
-                                        <option value="MBA in Marketing">MBA in Marketing</option>
-                                        <option value="MCA">MCA</option>
-                                        <option value="Diploma in Graphic Design">Diploma in Graphic Design</option>
-                                        <option value="Diploma in Architecture (D.Arch.)">Diploma in Architecture (D.Arch.)</option>
-                                        <option value="Diploma in Mechanical Engineering">Diploma in Mechanical Engineering</option>
-                                        <!-- Add more options as needed -->
+                                        <option value="">-- Choose a Degree --</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-md-12 sendOtpBtn">
-                                <label class="form-label">Enter OTP</label>
-                                <div class="d-flex">
-                                    <input type="text" class="form-control me-2" id="otpPopup" placeholder="Enter OTP" required style="
-                                        border-radius: 8px;
-                                        padding: 14px;
-                                        border: 1px solid #ddd;
-                                        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-                                    ">
-                                    <button type="button" class="btn btn-outline-danger rounded-pill" id="popupOtp" style="white-space: nowrap;">
-                                        Get OTP
-                                    </button>
-                                </div>
-                                <div id="otpMessage" class="mt-2 text-success" style="display: none; font-weight: 500;">
-                                    OTP sent successfully!
-                                </div>                                
                             </div>
                             <div class="d-flex justify-content-between mt-4">
                                 <button type="button" class="btn btn-outline-secondary px-4 py-2" data-bs-dismiss="modal">Close</button>
@@ -2195,20 +2193,129 @@ function toggleDetails(element) {
 
 
 <script>
-   function getUTMParameters() {
-        let fullUrl = window.location.href;
-        const urlParams = new URLSearchParams(window.location.search);
-        const utmSource = urlParams.get('utm_source');
-        sessionStorage.setItem('utm_source', utmSource);
-        sessionStorage.setItem('url', fullUrl);
-        if(utmSource !== 'paid'){
-            $('.sendOtpBtn').css("display", "none");
+   $(document).ready(function () {
+        function getUTMParameters() {
+            let fullUrl = window.location.href;
+            const urlParams = new URLSearchParams(window.location.search);
+            const utmSource = urlParams.get('utm_source');
+            sessionStorage.setItem('utm_source', utmSource);
+            sessionStorage.setItem('url', fullUrl);
+
+            if (utmSource && utmSource.toLowerCase() === 'partnerotp') {
+                $('#submitForm').prop('disabled', true);
+            } else if (utmSource && utmSource.toLowerCase() === 'partner') {
+                $('.sendOtpBtn').css("display", "none");
+            } else {
+                $('.sendOtpBtn').css("display", "none");
+                $('.whatsapp-float').hide(); // or use `.css("display", "none")`
+                $('.partnerCity').css("display", "none");
+            }
         }
-        else{
-            $('#submitForm').prop('disabled', true);
-        }
-    }
-    getUTMParameters();
+
+        getUTMParameters();
+        const programs = {
+            ug: [
+                "B.Tech. Computer Science Engineering",
+                "B.Tech. Mechanical Engineering",
+                "B.Tech. Civil Engineering",
+                "B.Tech. Electrical Engineering",
+                "B.Tech. Mining",
+                "B.A. (Hons.) LLB",
+                "Bachelor of Computer Applications",
+                "B.HMCT Bachelor of Hotel Management and Catering Technology",
+                "Bachelor of Business Administration",
+                "Bachelor of Design",
+                "LLB",
+                "B.A. (Hons.) Journalism and Mass Communication",
+                "B.A. (Hons.) Economics",
+                "B.A. (Hons.) Psychology",
+                "B.A. (Hons.) Political Science",
+                "B.A. (Hons.) Hindi",
+                "B.A. (Hons.) History",
+                "B.A. Sanskrit",
+                "B.A. Pass Course",
+                "B.Com. (Hons.)",
+                "B.Com.",
+                "B.Sc. (Hons.) Agriculture",
+                "B.Sc. (Hons.) Biotech",
+                "B.Sc. (Hons.) Microbiology",
+                "B.Sc. (Hons.) Forensic Science",
+                "B.Sc. Nursing",
+                "B.Sc. Physical Science (Physics, Chemistry, Mathematics)",
+                "B.Sc. Life Science (Zoology, Botany, Chemistry)",
+                "Bachelor of Pharmacy (B.Pharm.)",
+                "Bachelor of Pharmacy (Lateral Entry)",
+                "Bachelor of Science in Physical Education, Health Education & Sports {B.Sc. (P.E., H.E. & S.)}",
+                "Bachelor of Physical Education (B.P.Ed.) Integrated",
+                "Bachelor of Physical Education (B.P.Ed.)"
+            ],
+            pg: [
+                "M.Tech. Computer Science Engineering",
+                "M.Tech. Mechanical Engineering",
+                "M.Tech. Civil Engineering (Structure)",
+                "M.Tech. Civil Engineering (Environmental)",
+                "M.Tech. Electrical Engineering",
+                "Master of Computer Application",
+                "MBA Dual Specialization",
+                "MBA Agri-Business",
+                "LLM",
+                "Master of Hotel Management",
+                "Master of Physical Education & Sports (M.P.E.S)",
+                "Master of Physical Education (M.P.Ed.)",
+                "M.Sc. Physics",
+                "M.Sc. Mathematics",
+                "M.Sc. Chemistry",
+                "M.Sc. Zoology",
+                "M.Sc. Botany",
+                "M.Sc. Biotech",
+                "M.Sc. Microbiology",
+                "M.Sc. Computer Science",
+                "M. Com.",
+                "M.A. Psychology",
+                "M.A. History",
+                "M.A. Economics",
+                "M.A. Political Science",
+                "M.A. Hindi",
+                "M.A. Geography",
+                "M.A. English",
+                "M.A. Yoga"
+            ],
+            diploma: [
+                "Diploma in Computer Science & Engineering",
+                "Diploma in Fashion Designing",
+                "Diploma in Pharmacy (D.Pharm.)",
+                "Diploma in Architecture (D.Arch.)",
+                "Diploma in Mechanical Engineering",
+                "Diploma in Yoga",
+                "Diploma in Sports Event Management",
+                "Diploma in Paurohitya and Sanskar",
+                "Diploma in Vastu and Jyotish",
+                "Post Graduate Diploma in Yoga Education",
+                "Post Graduate Diploma in Sports Management",
+                "Advance Certificate in Cruise line Operation",
+                "Post Graduate Diploma in Computer Application"
+            ]
+        };
+
+
+        document.getElementById('degreeSelect').addEventListener('change', function () {
+            const selectedDegree = this.value;
+            const programSelect = document.getElementById('programSelect');
+
+            // Clear existing options
+            programSelect.innerHTML = '<option value="">-- Choose a Degree --</option>';
+
+            // Populate new options
+            if (programs[selectedDegree]) {
+                programs[selectedDegree].forEach(program => {
+                    const option = document.createElement('option');
+                    option.value = program;
+                    option.textContent = program;
+                    programSelect.appendChild(option);
+                });
+            }
+        });
+    });
 //     document.addEventListener("DOMContentLoaded", function () {
 //     let select1 = document.getElementById("connectTime");
 //     let select2 = document.getElementById("mainFormTime");

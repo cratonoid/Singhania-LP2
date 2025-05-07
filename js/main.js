@@ -173,19 +173,21 @@
                 swal("Invalid Email", "Please enter a valid email address.", "error");
                 return;
             }
-            if (city === "" || !nameRegex.test(city)) {
-                swal("Invalid City", "Please enter a valid city name (letters only).", "error");
-                return;
+            if(utm_source && (utm_source.toLowerCase() == 'partnerotp' || utm_source.toLowerCase() == 'partner')){
+                if (city === "" || !nameRegex.test(city)) {
+                    swal("Invalid City", "Please enter a valid city name (letters only).", "error");
+                    return;
+                }
             }
             if (connectTime === "") {
                 swal("Invalid Time", "Please select a convenient time to connect.", "error");
                 return;
             }
             if (programs === "") {
-                swal("Invalid Program", "Please select a Program.", "error");
+                swal("Invalid Program", "Please select a Program and Degree.", "error");
                 return;
             }
-            if(utm_source == "paid"){
+            if(utm_source && utm_source.toLowerCase() == 'partnerotp'){
                 if(GlobalOtp != parseInt(otp)){
                     swal("Invalid OTP", "Please Enter Valid Otp", "error");
                     return;
