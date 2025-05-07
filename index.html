@@ -102,7 +102,7 @@
         
         <div class="hero-content">
             <div class="left-content">
-              <h1 style="font-size: 50px; color: #831515;">Admissions Open for 2025</h1>
+              <h1 class="admiss"  style="font-size: 50px; color: #831515;">Admissions Open for 2025</h1>
               <h2 class="program" style="font-size: 22px; color: #831515;">Singhania University</h2>
               <p class="highlight" style="color: #000000;font-weight: 600;">Recognized by UGC | Career-Ready Programs </p>
               <p class="approval" style="color: #9d0000;font-weight: 600;">Build a Future-Ready Career with Approved Programs at Singhania University, Rajasthan </p>
@@ -194,7 +194,7 @@
 /* Background for Mobile */
 @media (max-width: 768px) {
     .heroSection {
-        background: url('img/banner_mob_1.jpg') no-repeat top center; /* Align to top */
+        background: url('img/banner_mob_mainn.png') no-repeat top center; /* Align to top */
         background-size: 100% auto;
         height: auto; 
         aspect-ratio: 9 / 16;
@@ -376,20 +376,29 @@
 
 
 @media (max-width: 768px) {
+    .admiss{
+        font-size: 2rem !important;
+    }
+    .program .highlight, .approval{
+        font-size: 1rem !important;
+    }
+    .admiss, .program, .highlight, .approval{
+        color: #ffffff !important;
+    }
     .hero-content {
         flex-direction: column;
         align-items: flex-start;
-        padding: 20px;
-    }
+        margin-top: 15rem;
+     }
 
     .left-content, .right-form {
         max-width: 100%;
         width: 100%;
     }
-
-    .right-form {
-        margin-top: 20px;
+    .intro-section{
+        margin-top: 17rem;
     }
+
 }
 
 
