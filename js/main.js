@@ -231,8 +231,12 @@
                     mobile: whatsappNumber,
                     city: city,
                     address: "address", // Replace with actual address if available
+                    source:"website",
+                    usergroupid: "GRP1iped2p093cme0", 
+                    segmentid: "SEG8jtr2wwqnne1d1746615195237", 
                     otherparams: [
                         { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
+                        { "meta_key": "utm_source", "meta_value": utm_source },
                         { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
                 }),
@@ -328,8 +332,12 @@
                     mobile: whatsappNumber,
                     city: city,
                     address: "address", // Replace with actual address if available
+                    source:"website",
+                    usergroupid: "GRP1iped2p093cme0", 
+                    segmentid: "SEG8jtr2wwqnne1d1746615195237", 
                     otherparams: [
                         { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
+                        { "meta_key": "utm_source", "meta_value": utm_source },
                         { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
                 }),
@@ -424,8 +432,12 @@
                     mobile: whatsappNumber,
                     city: city,
                     address: "address", // Replace with actual address if available
+                    source:"website",
+                    usergroupid: "GRP1iped2p093cme0", 
+                    segmentid: "SEG8jtr2wwqnne1d1746615195237", 
                     otherparams: [
                         { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
+                        { "meta_key": "utm_source", "meta_value": utm_source },
                         { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
                 }),
