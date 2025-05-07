@@ -152,13 +152,13 @@
                     <button class="otp-send sendOtpBtn" id="heroOtp" type="button">Send OTP</button>
                 </div>
         
-                <div class="otp-row sendOtpBtn" id="otp-section">
+                <div class="form-row sendOtpBtn">
                     <input type="text" id="otp-input" class="otp-input" placeholder="Enter OTP" required="">
+                    <p id="otpHeroMessage" class="text-success" style="display: none;">
+                        OTP sent successfully!
+                    </p>
                 </div>
-                <div id="otpHeroMessage" class="mt-2 text-success" style="display: none; font-weight: 500;">
-                    OTP sent successfully!
-                </div>
-                <button type="submit" id="submit-btn" class="btn-disabled" disabled="">Submit</button>
+                <button type="submit" class="btn btn-primary px-4 py-2" id="submit-btn">Submit</button>
               </form>
               <div id="notification" class="notification hidden">
                 <span id="notification-icon"></span>
@@ -2464,6 +2464,7 @@ function toggleDetails(element) {
             sessionStorage.setItem('url', fullUrl);
             if (utmSource && utmSource.toLowerCase() === 'partnerotp') {
                 $('#submitForm').prop('disabled', true);
+                $('#submit-btn').prop('disabled', true);
                 $('.partnerCity').css("display", "none");
             } else if (utmSource && utmSource.toLowerCase() === 'partner') {
                 $('.sendOtpBtn').css("display", "none");

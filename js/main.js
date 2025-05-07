@@ -261,10 +261,10 @@
 			
         });
 
-        $("#popupOtp").click(function (event){
+        $("#heroOtp").click(function (event){
             event.preventDefault();
             let phoneRegex = /^[6-9]\d{9}$/;
-            let whatsappNumber = $("#whatsappNumber").val().trim();
+            let whatsappNumber = $("#mobile").val().trim();
             if (whatsappNumber === "" || !phoneRegex.test(whatsappNumber)) {
                 swal("Invalid Number", "Please enter a valid 10-digit WhatsApp number.", "error");
                 return;
@@ -284,8 +284,8 @@
                 success: function (response) {
                     if (response.messages && response.messages[0].status.id === 7) {
                         console.log("OTP sent");
-                        $('#submitForm').prop('disabled', false);
-                        $('#otpMessage').css('display', 'block');
+                        $('#submit-btn').prop('disabled', false);
+                        $('#otpHeroMessage').css('display', 'block');
                     } else {
                         swal("Invalid Number", "Please verify the number entered in WhatsApp Number", "error");
                     }
@@ -296,19 +296,19 @@
             });
     
         });
-            $("#submitForm").click(function (event) {
+            $("#submit-btn").click(function (event) {
                 event.preventDefault();
     
                 // Get input values
-                let fullName = $("#fullName").val().trim();
-                let whatsappNumber = $("#whatsappNumber").val().trim();
-                let email = $("#email").val().trim();
-                let city = $("#city").val();
-                let connectTime = $("#connectTime").val();
+                let fullName = $("#heroName").val().trim();
+                let whatsappNumber = $("#mobile").val().trim();
+                let email = $("#heroEmail").val().trim();
+                let city = $("#heroCity").val();
+                let connectTime = $("#connectHeroTime").val();
                 let url = sessionStorage.getItem("url");
                 let utm_source = sessionStorage.getItem('utm_source');
-                let otp = $("#otpPopup").val().trim();
-                let programs = $("#programSelect").val();
+                let otp = $("#otp-input").val().trim();
+                let programs = $("#programHeroSelect").val();
                
     
                 // Validation Regex
@@ -330,7 +330,7 @@
                     return;
                 }
                 if(utm_source && (utm_source.toLowerCase() == 'partnerotp' || utm_source.toLowerCase() == 'partner')){
-                    city = $("#citySelect").val().trim();
+                    city = $("#cityHeroSelect").val().trim();
                     if (city === "" || !nameRegex.test(city)) {
                         swal("Invalid City", "Please Select the city", "error");
                         return;
@@ -354,9 +354,6 @@
                         return;
                     }
                 }
-    
-                // Hide Modal on successful validation
-                $("#detailsModal").modal("hide");
     
                 let formData = {
                     "Full Name": fullName,
