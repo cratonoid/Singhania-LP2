@@ -105,6 +105,17 @@
     });
     const scriptURL = "https://script.google.com/macros/s/AKfycbylnH5_GvQgOMIObtYf-RzaPBtzR4bicwzI9KZ4dI_bUXCdOeYVU4MzRr7mA7GUQmZS/exec";
     let GlobalOtp = 0;
+    const coupons = ['SUFIRST25', 'SUGOHALF', 'SUDEAL75', 'SUTOTALWAIVE', 'MERITSU100', 'FASTSU50', 'SUFEST25', 'SUSHEROES50'];
+    const couponKeyAndValue = {
+        SUFIRST25 : 'SUFIRST25 - Get 25% off on your application fee',
+        SUGOHALF : 'SUGOHALF - Avail 50% application fee waiver',
+        SUDEAL75 : 'SUDEAL75 - Enjoy 75% off, limited-time offer',
+        SUTOTALWAIVE : 'SUTOTALWAIVE - 100% waiver',
+        MERITSU100 : 'MERITSU100 - Full waiver for merit-based applicants',
+        FASTSU50 : 'FASTSU50 - 50% off for the first 50 applicants',
+        SUFEST25 : 'SUFEST25 - 25% festive season offer',
+        SUSHEROES50 : 'SUSHEROES50 - 50% off for girl applicants'
+    }
     $("#popupOtp").click(function (event){
         event.preventDefault();
         let phoneRegex = /^[6-9]\d{9}$/;
@@ -153,6 +164,7 @@
             let utm_source = sessionStorage.getItem('utm_source');
             let otp = $("#otpPopup").val().trim();
             let programs = $("#programSelect").val();
+            let coupon = "";
            
 
             // Validation Regex
@@ -175,9 +187,16 @@
             }
             if(utm_source && (utm_source.toLowerCase() == 'partnerotp' || utm_source.toLowerCase() == 'partner')){
                 city = $("#citySelect").val().trim();
+                coupon = $("#popupCoupon").val().trim();
                 if (city === "" || !nameRegex.test(city)) {
                     swal("Invalid City", "Please Select the city", "error");
                     return;
+                }
+                if(coupons.includes(coupon)) {
+                    coupon = couponKeyAndValue[coupon];
+                }
+                else{
+                    coupon = "";
                 }
             }
             else if(city === "" || !nameRegex.test(city)) {
@@ -210,7 +229,8 @@
                 "Convenient Time to Connect": connectTime,
                 "Program Name": programs,
                 "Url" : url,
-                "Lp name" : "Singhania_Law_2"
+                "Lp name" : "Singhania_Law_2",
+                "coupon" : coupon
             };
 
             $.ajax({
@@ -298,7 +318,7 @@
         });
             $("#submit-btn").click(function (event) {
                 event.preventDefault();
-    
+               
                 // Get input values
                 let fullName = $("#heroName").val().trim();
                 let whatsappNumber = $("#mobile").val().trim();
@@ -309,7 +329,7 @@
                 let utm_source = sessionStorage.getItem('utm_source');
                 let otp = $("#otp-input").val().trim();
                 let programs = $("#programHeroSelect").val();
-               
+                let coupon = "";
     
                 // Validation Regex
                 let nameRegex = /^[a-zA-Z\s]+$/; 
@@ -331,9 +351,16 @@
                 }
                 if(utm_source && (utm_source.toLowerCase() == 'partnerotp' || utm_source.toLowerCase() == 'partner')){
                     city = $("#cityHeroSelect").val().trim();
+                    coupon = $("#heroCoupon").val().trim();
                     if (city === "" || !nameRegex.test(city)) {
                         swal("Invalid City", "Please Select the city", "error");
                         return;
+                    }
+                    if(coupons.includes(coupon)) {
+                        coupon = couponKeyAndValue[coupon];
+                    }
+                    else{
+                        coupon = "";
                     }
                 }
                 else if(city === "" || !nameRegex.test(city)) {
@@ -363,7 +390,8 @@
                     "Convenient Time to Connect": connectTime,
                     "Program Name": programs,
                     "Url" : url,
-                    "Lp name" : "Singhania_Law_2"
+                    "Lp name" : "Singhania_Law_2",
+                    "coupon" : coupon
                 };
     
                 $.ajax({
