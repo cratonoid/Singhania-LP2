@@ -100,19 +100,18 @@
    <div class="container-fluid p-0">
     <div class="position-relative w-100 min-vh-100 heroSection">
         
-        <!-- Overlay -->
         <div class="hero-content">
             <div class="left-content">
-              <h1>Admissions Open for 2025</h1>
-              <h2 class="program">Singhania University</h2>
-              <p class="highlight">Recognized by UGC | Career-Ready Programs </p>
-              <p class="approval">Build a Future-Ready Career with Approved Programs at Singhania University, Rajasthan </p>
+              <h1 style="font-size: 50px; color: #831515;">Admissions Open for 2025</h1>
+              <h2 class="program" style="font-size: 22px; color: #831515;">Singhania University</h2>
+              <p class="highlight" style="color: #000000;font-weight: 600;">Recognized by UGC | Career-Ready Programs </p>
+              <p class="approval" style="color: #9d0000;font-weight: 600;">Build a Future-Ready Career with Approved Programs at Singhania University, Rajasthan </p>
               <!-- <button class="apply-btn">Apply Now</button> -->
             </div>
       
             <div class="right-form">
               <form class="inquiry-form" id="admission-form">
-                <h2>Registration Form</h2>
+                <h2 style="color: #831515;">Registration Form</h2>
       
                 <div class="form-row">
                   <input type="text" placeholder="Your Name" id="name" required="">
@@ -245,6 +244,151 @@
 
 
 
+
+
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 5%;
+    flex-wrap: wrap;
+}
+
+.left-content {
+    flex: 1;
+    max-width: 50%;
+    color: #fff; /* Adjust for readability depending on background */
+}
+
+.right-form {
+    flex-shrink: 0;
+}
+
+
+
+
+
+
+.right-form {
+    background: #fff;
+    padding: 12px 14px;
+    border-radius: 8px;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    font-family: 'Poppins', sans-serif;
+}
+
+.inquiry-form h2 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+    color: #222;
+}
+
+.inquiry-form input,
+.inquiry-form select {
+    width: 100%;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 11px;
+    background: #f7f7f7;
+}
+
+.phone-input-wrapper {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.phone-input-wrapper select.country-code {
+    width: 60px;
+    padding: 6px;
+    font-size: 11px;
+}
+
+.phone-number {
+    flex: 1;
+    font-size: 11px;
+}
+
+.otp-row {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 8px;
+}
+
+.otp-input {
+    flex: 2;
+    padding: 6px 8px;
+    font-size: 11px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.otp-verify-btn {
+    flex: 1;
+    padding: 6px;
+    font-size: 10px;
+    background-color: #831515;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.otp-send,
+#submit-btn {
+    padding: 6px;
+    font-size: 11px;
+    background-color: #831515;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.otp-send:hover,
+.otp-verify-btn:hover,
+#submit-btn:hover {
+    background-color: #a51a1a;
+}
+
+.notification {
+    margin-top: 6px;
+    font-size: 10px;
+    text-align: center;
+    color: #2ecc71;
+}
+
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .left-content, .right-form {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .right-form {
+        margin-top: 20px;
+    }
+}
 
 
 </style>
