@@ -147,7 +147,7 @@
             let fullName = $("#fullName").val().trim();
             let whatsappNumber = $("#whatsappNumber").val().trim();
             let email = $("#email").val().trim();
-            let city = $("#city").val().trim();
+            let city = $("#city").val();
             let connectTime = $("#connectTime").val();
             let url = sessionStorage.getItem("url");
             let utm_source = sessionStorage.getItem('utm_source');
@@ -174,10 +174,15 @@
                 return;
             }
             if(utm_source && (utm_source.toLowerCase() == 'partnerotp' || utm_source.toLowerCase() == 'partner')){
+                city = $("#citySelect").val().trim();
                 if (city === "" || !nameRegex.test(city)) {
-                    swal("Invalid City", "Please enter a valid city name (letters only).", "error");
+                    swal("Invalid City", "Please Select the city", "error");
                     return;
                 }
+            }
+            else if(city === "" || !nameRegex.test(city)) {
+                swal("Invalid City", "Please enter a valid city name (letters only).", "error");
+                return;
             }
             if (connectTime === "") {
                 swal("Invalid Time", "Please select a convenient time to connect.", "error");
@@ -251,6 +256,158 @@
 			}, 500); // Redirect after 0.5 second
 			
         });
+
+        $("#popupOtp").click(function (event){
+            event.preventDefault();
+            let phoneRegex = /^[6-9]\d{9}$/;
+            let whatsappNumber = $("#whatsappNumber").val().trim();
+            if (whatsappNumber === "" || !phoneRegex.test(whatsappNumber)) {
+                swal("Invalid Number", "Please enter a valid 10-digit WhatsApp number.", "error");
+                return;
+            }
+            let otp = Math.floor(1000 + Math.random() * 9000);
+            GlobalOtp = otp;
+            let otpURL = "https://api2.nexgplatforms.com/sms/1/text/query?" +
+            "username=Vama&password=VamA@123!!&from=VAMAXT" +
+            "&to=91" + whatsappNumber + // Use the entered number
+            "&indiaDltContentTemplateId=1207165155088104790" +
+            "&indiaDltPrincipalEntityId=1201161293682304526" +
+            "&indiaDltTelemarketerId=1702171328200125899" +
+            "&text=" + encodeURIComponent(otp + " is your mobile verification code for VAMA");
+            $.ajax({
+                url: otpURL,
+                type: "GET",
+                success: function (response) {
+                    if (response.messages && response.messages[0].status.id === 7) {
+                        console.log("OTP sent");
+                        $('#submitForm').prop('disabled', false);
+                        $('#otpMessage').css('display', 'block');
+                    } else {
+                        swal("Invalid Number", "Please verify the number entered in WhatsApp Number", "error");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX Error:", error);
+                }
+            });
+    
+        });
+            $("#submitForm").click(function (event) {
+                event.preventDefault();
+    
+                // Get input values
+                let fullName = $("#fullName").val().trim();
+                let whatsappNumber = $("#whatsappNumber").val().trim();
+                let email = $("#email").val().trim();
+                let city = $("#city").val();
+                let connectTime = $("#connectTime").val();
+                let url = sessionStorage.getItem("url");
+                let utm_source = sessionStorage.getItem('utm_source');
+                let otp = $("#otpPopup").val().trim();
+                let programs = $("#programSelect").val();
+               
+    
+                // Validation Regex
+                let nameRegex = /^[a-zA-Z\s]+$/; 
+                let phoneRegex = /^[6-9]\d{9}$/;
+                let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
+    
+                // Validation Checks
+                if (fullName === "" || !nameRegex.test(fullName)) {
+                    swal("Invalid Name", "Please enter a valid full name (letters only).", "error");
+                    return;
+                }
+                if (whatsappNumber === "" || !phoneRegex.test(whatsappNumber)) {
+                    swal("Invalid Number", "Please enter a valid 10-digit WhatsApp number.", "error");
+                    return;
+                }
+                if (email === "" || !emailRegex.test(email)) {
+                    swal("Invalid Email", "Please enter a valid email address.", "error");
+                    return;
+                }
+                if(utm_source && (utm_source.toLowerCase() == 'partnerotp' || utm_source.toLowerCase() == 'partner')){
+                    city = $("#citySelect").val().trim();
+                    if (city === "" || !nameRegex.test(city)) {
+                        swal("Invalid City", "Please Select the city", "error");
+                        return;
+                    }
+                }
+                else if(city === "" || !nameRegex.test(city)) {
+                    swal("Invalid City", "Please enter a valid city name (letters only).", "error");
+                    return;
+                }
+                if (connectTime === "") {
+                    swal("Invalid Time", "Please select a convenient time to connect.", "error");
+                    return;
+                }
+                if (programs === "") {
+                    swal("Invalid Program", "Please select a Program and Degree.", "error");
+                    return;
+                }
+                if(utm_source && utm_source.toLowerCase() == 'partnerotp'){
+                    if(GlobalOtp != parseInt(otp)){
+                        swal("Invalid OTP", "Please Enter Valid Otp", "error");
+                        return;
+                    }
+                }
+    
+                // Hide Modal on successful validation
+                $("#detailsModal").modal("hide");
+    
+                let formData = {
+                    "Full Name": fullName,
+                    "WhatsApp Number": whatsappNumber,
+                    "Email ID": email,
+                    "City of Residence": city,
+                    "Convenient Time to Connect": connectTime,
+                    "Program Name": programs,
+                    "Url" : url,
+                    "Lp name" : "Singhania_Law_2"
+                };
+    
+                $.ajax({
+                    url: scriptURL,
+                    type: "POST",
+                    data: formData,
+                    contentType: "application/x-www-form-urlencoded",
+                    success: function (response) {
+                        console.log("Form submitted successfully", response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error:", error);
+                    }
+                });
+                //Second: Submit to your API
+                $.ajax({
+                    url: 'https://platformapi.teleforce.in/api/v1/api/createlead/181743',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        name: fullName,
+                        email: email,
+                        mobile: whatsappNumber,
+                        city: city,
+                        address: "address", // Replace with actual address if available
+                        otherparams: [
+                            { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
+                            { "meta_key": "convenient_time", "meta_value": connectTime }
+                        ]
+                    }),
+                    success: function (response) {
+                        console.log("API lead created successfully", response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Lead API Error:", error);
+                    }
+                });
+                
+                
+                // Redirect without waiting for the server
+                setTimeout(() => {
+                    window.location.href = "thankyou.html";
+                }, 500); // Redirect after 0.5 second
+                
+            });
 
         $("#submitApplication").click(function (event) {
             event.preventDefault();
