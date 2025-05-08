@@ -2623,15 +2623,11 @@ function toggleDetails(element) {
                 });
             }
         });
-
         fetch('./json/Indian_Cities_In_States_JSON.json')
         .then(response => response.json())
         .then(data => {
             const stateSelect = document.getElementById('stateSelect');
             const citySelect = document.getElementById('citySelect');
-
-            const stateHeroSelect = document.getElementById('stateHeroSelect');
-            const cityHeroSelect = document.getElementById('cityHeroSelect');
 
             // Extract unique states (keys of the object)
             const states = Object.keys(data);
@@ -2640,7 +2636,6 @@ function toggleDetails(element) {
                 option.value = state;
                 option.text = state;
                 stateSelect.add(option);
-                stateHeroSelect.add(option);
             });
 
                     // Event listener for state change
@@ -2656,6 +2651,24 @@ function toggleDetails(element) {
                     option.text = city;
                     citySelect.add(option);
                 });
+            });
+
+        });
+
+        fetch('./json/Indian_Cities_In_States_JSON.json')
+        .then(response => response.json())
+        .then(data => {
+
+            const stateHeroSelect = document.getElementById('stateHeroSelect');
+            const cityHeroSelect = document.getElementById('cityHeroSelect');
+
+            // Extract unique states (keys of the object)
+            const states = Object.keys(data);
+            states.forEach(state => {
+                let option = document.createElement('option');
+                option.value = state;
+                option.text = state;
+                stateHeroSelect.add(option);
             });
 
             stateHeroSelect.addEventListener('change', function() {
