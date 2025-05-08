@@ -195,8 +195,9 @@
                 if(coupons.includes(coupon)) {
                     coupon_value = couponKeyAndValue[coupon];
                 }
-                else{
-                    coupon_value = "";
+                else if(coupon !== ""){
+                    swal("Invalid Coupon Code", "Please Enter Valid Coupon", "error");
+                    return;
                 }
             }
             else if(city === "" || !nameRegex.test(city)) {
@@ -361,8 +362,9 @@
                     if(coupons.includes(coupon)) {
                         coupon_value = couponKeyAndValue[coupon];
                     }
-                    else{
-                        coupon_value = "";
+                    else if(coupon !== ""){
+                        swal("Invalid Coupon Code", "Please Enter Valid Coupon", "error");
+                        return;
                     }
                 }
                 else if(city === "" || !nameRegex.test(city)) {
