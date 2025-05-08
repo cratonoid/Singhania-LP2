@@ -529,6 +529,7 @@
                     segmentid: "SEG8jtr2wwqnne1d1746615195237", 
                     otherparams: [
                         { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
+                        { "meta_key": "coupon_code", "meta_value": coupon },
                         { "meta_key": "utm_source", "meta_value": utm_source }
                         // ,
                         // { "meta_key": "convenient_time", "meta_value": connectTime }
@@ -630,6 +631,7 @@
                     segmentid: "SEG8jtr2wwqnne1d1746615195237", 
                     otherparams: [
                         { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
+                        { "meta_key": "coupon_code", "meta_value": coupon },
                         { "meta_key": "utm_source", "meta_value": utm_source }
                         // ,
                         // { "meta_key": "convenient_time", "meta_value": connectTime }
