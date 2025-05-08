@@ -143,9 +143,9 @@
                     </select>
                 </div>
 
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <input type="text" class="form-control" id="connectHeroTime" placeholder="e.g., 4:00 PM - 5:00 PM">
-                </div>
+                </div> -->
 
                 <div class="phone-input-wrapper">
                     <input type="tel" placeholder="Mobile Number *" class="phone-number" id="mobile" required="">
@@ -202,7 +202,7 @@
         height: auto; 
         aspect-ratio: 9 / 16;
         width: 100vw;
-        min-height: 120vh !important; /* Ensure space at bottom */
+        min-height: 125vh !important; /* Ensure space at bottom */
     }
     .apply-btn {
         transform: translateX(-10%) translateY(-120px);
@@ -394,15 +394,22 @@
     .hero-content {
         align-items: flex-start;
         margin-top: 10rem;
-        display: block;
+        display: grid;
+        padding-bottom: 11rem;
      }
 
     .left-content, .right-form {
         max-width: 100%;
         width: 100%;
     }
-    .intro-section{
+    .left-content {
+        background-color: rgb(104 14 5 / 50%);
+        color: #ffffff !important;
+        backdrop-filter: blur(2px);
+        border-radius: 2rem;
+        padding: 1rem;
     }
+
 
 }
 
@@ -1727,14 +1734,14 @@ section .col-md-6 img {
                                 </div>
                             </div>
 
-                            <div class="mb-2">
+                            <!-- <div class="mb-2">
                                 <label for="connectTime" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">
                                     Convenient Time to Connect
                                 </label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
                                     <input type="text" class="form-control" id="connectTime" placeholder="e.g., 4:00 PM - 5:00 PM">
-                                </div>
+                                </div> -->
                                 
                             </div>
                             <div class="mb-2">
