@@ -165,6 +165,7 @@
             let otp = $("#otpPopup").val().trim();
             let programs = $("#programSelect").val();
             let coupon = "";
+            let coupon_value = "";
            
 
             // Validation Regex
@@ -333,6 +334,7 @@
                 let otp = $("#otp-input").val().trim();
                 let programs = $("#programHeroSelect").val();
                 let coupon = "";
+                let coupon_value = "";
     
                 // Validation Regex
                 let nameRegex = /^[a-zA-Z\s]+$/; 
