@@ -416,16 +416,19 @@
                     contentType: 'application/json',
                     data: JSON.stringify({
                         name: fullName,
-                        email: email,
-                        mobile: whatsappNumber,
-                        city: city,
-                        address: "address", // Replace with actual address if available
-                        otherparams: [
-                            { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
-                            { "meta_key": "utm_source", "meta_value": utm_source }
-                            // ,
-                            // { "meta_key": "convenient_time", "meta_value": connectTime }
-                        ]
+                    email: email,
+                    mobile: whatsappNumber,
+                    city: city,
+                    address: "address", // Replace with actual address if available
+                    source:"website",
+                    usergroupid: "GRP1iped2p093cme0", 
+                    segmentid: "SEG8jtr2wwqnne1d1746615195237", 
+                    otherparams: [
+                        { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
+                        { "meta_key": "utm_source", "meta_value": utm_source }
+                        // ,
+                        // { "meta_key": "convenient_time", "meta_value": connectTime }
+                    ]
                     }),
                     success: function (response) {
                         console.log("API lead created successfully", response);

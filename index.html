@@ -159,7 +159,7 @@
                     </p>
                 </div>
                 <div class="form-row stateCity">
-                    <input type="text" class="form-control" id="heroCoupon" placeholder="Coupon *">
+                    <input type="text" class="form-control" id="heroCoupon" placeholder="Coupon">
                 </div>
                 <button type="submit" class="btn btn-primary px-4 py-2" id="submit-btn">Submit</button>
               </form>
@@ -1724,7 +1724,8 @@ section .col-md-6 img {
                                         <option value="">-- Choose a State --</option>
                                     </select>
                                 </div>
-                            
+                            </div>
+                            <div class="mb-2" >
                                 <label for="citySelect" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">Select City</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="bi bi-geo-alt"></i></span>
@@ -1743,7 +1744,7 @@ section .col-md-6 img {
                                     <input type="text" class="form-control" id="connectTime" placeholder="e.g., 4:00 PM - 5:00 PM">
                                 </div> -->
                                 
-                            <!-- </div> -->
+                            
                             <div class="mb-2">
                                 <label for="degreeSelect" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">Select Program</label>
                                 <div class="input-group mb-2">
@@ -1755,7 +1756,9 @@ section .col-md-6 img {
                                         <option value="diploma">Diploma / Certificate</option>
                                     </select>
                                 </div>
+                            </div>
                             
+                            <div class="mb-2">
                                 <label for="programSelect" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">Select Degree</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="bi bi-list-ul"></i></span>
@@ -1764,6 +1767,7 @@ section .col-md-6 img {
                                     </select>
                                 </div>
                             </div>
+
                             <div class="mb-2">
                                 <label for="whatsappNumber" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">WhatsApp Number</label>
                                 <div class="input-group">
@@ -1771,6 +1775,7 @@ section .col-md-6 img {
                                     <input type="tel" class="form-control" id="whatsappNumber" placeholder="Enter your WhatsApp number">
                                 </div>
                             </div>
+
                             <div class="col-md-12 mb-2 sendOtpBtn">
                                 <label class="form-label">Enter OTP</label>
                                 <div class="d-flex">
@@ -1786,8 +1791,9 @@ section .col-md-6 img {
                                 </div>
                                 <div id="otpMessage" class="mt-2 text-success" style="display: none; font-weight: 500;">
                                     OTP sent successfully!
-                                </div>                                
+                                </div>                                                            
                             </div>
+
                             <div class="mb-2 stateCity">
                                 <label for="heroCoupon" class="form-label" style="font-family: 'league spartan', serif; font-size: 18px;">Coupon</label>
                                 <div class="input-group">
@@ -1795,6 +1801,7 @@ section .col-md-6 img {
                                     <input type="text" class="form-control" id="popupCoupon" placeholder="Enter your coupon code">
                                 </div>
                             </div>
+                            
                             <div class="d-flex justify-content-between mt-4">
                                 <button type="button" class="btn btn-outline-secondary px-4 py-2" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary px-4 py-2" id="submitForm">Submit</button>
