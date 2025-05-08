@@ -159,7 +159,7 @@
             let whatsappNumber = $("#whatsappNumber").val().trim();
             let email = $("#email").val().trim();
             let city = $("#city").val();
-            let connectTime = $("#connectTime").val();
+            // let connectTime = $("#connectTime").val();
             let url = sessionStorage.getItem("url");
             let utm_source = sessionStorage.getItem('utm_source');
             let otp = $("#otpPopup").val().trim();
@@ -203,10 +203,10 @@
                 swal("Invalid City", "Please enter a valid city name (letters only).", "error");
                 return;
             }
-            if (connectTime === "") {
-                swal("Invalid Time", "Please select a convenient time to connect.", "error");
-                return;
-            }
+            // if (connectTime === "") {
+            //     swal("Invalid Time", "Please select a convenient time to connect.", "error");
+            //     return;
+            // }
             if (programs === "") {
                 swal("Invalid Program", "Please select a Program and Degree.", "error");
                 return;
@@ -226,7 +226,7 @@
                 "WhatsApp Number": whatsappNumber,
                 "Email ID": email,
                 "City of Residence": city,
-                "Convenient Time to Connect": connectTime,
+                // "Convenient Time to Connect": connectTime,
                 "Program Name": programs,
                 "Url" : url,
                 "Lp name" : "Singhania_Law_2",
@@ -261,8 +261,9 @@
                     segmentid: "SEG8jtr2wwqnne1d1746615195237", 
                     otherparams: [
                         { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
-                        { "meta_key": "utm_source", "meta_value": utm_source },
-                        { "meta_key": "convenient_time", "meta_value": connectTime }
+                        { "meta_key": "utm_source", "meta_value": utm_source }
+                        // ,
+                        // { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
                 }),
                 success: function (response) {
@@ -324,7 +325,7 @@
                 let whatsappNumber = $("#mobile").val().trim();
                 let email = $("#heroEmail").val().trim();
                 let city = $("#heroCity").val();
-                let connectTime = $("#connectHeroTime").val();
+                // let connectTime = $("#connectHeroTime").val();
                 let url = sessionStorage.getItem("url");
                 let utm_source = sessionStorage.getItem('utm_source');
                 let otp = $("#otp-input").val().trim();
@@ -367,10 +368,10 @@
                     swal("Invalid City", "Please enter a valid city name (letters only).", "error");
                     return;
                 }
-                if (connectTime === "") {
-                    swal("Invalid Time", "Please select a convenient time to connect.", "error");
-                    return;
-                }
+                // if (connectTime === "") {
+                //     swal("Invalid Time", "Please select a convenient time to connect.", "error");
+                //     return;
+                // }
                 if (programs === "") {
                     swal("Invalid Program", "Please select a Program and Degree.", "error");
                     return;
@@ -387,7 +388,7 @@
                     "WhatsApp Number": whatsappNumber,
                     "Email ID": email,
                     "City of Residence": city,
-                    "Convenient Time to Connect": connectTime,
+                    // "Convenient Time to Connect": connectTime,
                     "Program Name": programs,
                     "Url" : url,
                     "Lp name" : "Singhania_Law_2",
@@ -419,7 +420,9 @@
                         address: "address", // Replace with actual address if available
                         otherparams: [
                             { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
-                            { "meta_key": "convenient_time", "meta_value": connectTime }
+                            { "meta_key": "utm_source", "meta_value": utm_source }
+                            // ,
+                            // { "meta_key": "convenient_time", "meta_value": connectTime }
                         ]
                     }),
                     success: function (response) {
@@ -446,7 +449,7 @@
             let whatsappNumber = $("#whatsapp").val().trim();
             let email = $("#mainFormEmail").val().trim();
             let city = $("#mainFormCity").val().trim();
-            let connectTime = $("#mainFormTime").val();
+            // let connectTime = $("#mainFormTime").val();
             let url = sessionStorage.getItem("url");
            
 
@@ -472,10 +475,10 @@
                 swal("Invalid City", "Please enter a valid city name (letters only).", "error");
                 return;
             }
-            if (connectTime === "") {
-                swal("Invalid Time", "Please select a convenient time to connect.", "error");
-                return;
-            }
+            // if (connectTime === "") {
+            //     swal("Invalid Time", "Please select a convenient time to connect.", "error");
+            //     return;
+            // }
 
             // Hide Modal on successful validation
             $("#detailsModal").modal("hide");
@@ -485,7 +488,7 @@
                 "WhatsApp Number": whatsappNumber,
                 "Email ID": email,
                 "City of Residence": city,
-                "Convenient Time to Connect": connectTime,
+                // "Convenient Time to Connect": connectTime,
                 "Url" : url,
                 "Lp name" : "Singhania_Law_2"
             };
@@ -519,8 +522,9 @@
                     segmentid: "SEG8jtr2wwqnne1d1746615195237", 
                     otherparams: [
                         { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
-                        { "meta_key": "utm_source", "meta_value": utm_source },
-                        { "meta_key": "convenient_time", "meta_value": connectTime }
+                        { "meta_key": "utm_source", "meta_value": utm_source }
+                        // ,
+                        // { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
                 }),
                 success: function (response) {
@@ -546,7 +550,7 @@
             let whatsappNumber = $("#secondFormWhatsapp").val().trim();
             let email = $("#secondFormEmail").val().trim();
             let city = $("#secondFormCity").val().trim();
-            let connectTime = $("#secondFormTime").val();
+            // let connectTime = $("#secondFormTime").val();
             let url = sessionStorage.getItem("url");
            
 
@@ -572,10 +576,10 @@
                 swal("Invalid City", "Please enter a valid city name (letters only).", "error");
                 return;
             }
-            if (connectTime === "") {
-                swal("Invalid Time", "Please select a convenient time to connect.", "error");
-                return;
-            }
+            // if (connectTime === "") {
+            //     swal("Invalid Time", "Please select a convenient time to connect.", "error");
+            //     return;
+            // }
 
             // Hide Modal on successful validation
             $("#detailsModal").modal("hide");
@@ -585,7 +589,7 @@
                 "WhatsApp Number": whatsappNumber,
                 "Email ID": email,
                 "City of Residence": city,
-                "Convenient Time to Connect": connectTime,
+                // "Convenient Time to Connect": connectTime,
                 "Url" : url,
                 "Lp name" : "Singhania_Law_2"
             };
@@ -619,8 +623,9 @@
                     segmentid: "SEG8jtr2wwqnne1d1746615195237", 
                     otherparams: [
                         { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
-                        { "meta_key": "utm_source", "meta_value": utm_source },
-                        { "meta_key": "convenient_time", "meta_value": connectTime }
+                        { "meta_key": "utm_source", "meta_value": utm_source }
+                        // ,
+                        // { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
                 }),
                 success: function (response) {
