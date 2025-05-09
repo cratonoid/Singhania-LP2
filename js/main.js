@@ -168,6 +168,8 @@
             let programs = $("#programSelect").val();
             let coupon = "";
             let coupon_value = "";
+            let usergrpid = "GRP1iped2p093cme0"
+            let segid = "SEG8jtr2wwqnne1d1746615195237"
            
 
             // Validation Regex
@@ -189,6 +191,8 @@
                 return;
             }
             if(utm_source && (utm_source.toLowerCase() == 'partnerotp' || utm_source.toLowerCase() == 'partner')){
+                usergrpid = "GRP1iped2p093cme0"
+                segid = "SEGvqhkwzu90rr501746776094352"
                 city = $("#citySelect").val().trim();
                 coupon = $("#popupCoupon").val().trim();
                 if (city === "" || !nameRegex.test(city)) {
@@ -260,8 +264,8 @@
                     mobile: whatsappNumber,
                     city: city,
                     source:"website",
-                    usergroupid: "GRP1iped2p093cme0", 
-                    segmentid: "SEG8jtr2wwqnne1d1746615195237", 
+                    usergroupid: usergrpid, 
+                    segmentid: segid, 
                     otherparams: [                        
                         { "meta_key": "coupon_code", "meta_value": coupon },
                         { "meta_key": "utm_source", "meta_value": utm_source },
@@ -339,6 +343,8 @@
                 let programs = $("#programHeroSelect").val();
                 let coupon = "";
                 let coupon_value = "";
+                let usergrpid = "GRP1iped2p093cme0"
+                let segid = "SEG8jtr2wwqnne1d1746615195237"
     
                 // Validation Regex
                 let nameRegex = /^[a-zA-Z\s]+$/; 
@@ -359,6 +365,8 @@
                     return;
                 }
                 if(utm_source && (utm_source.toLowerCase() == 'partnerotp' || utm_source.toLowerCase() == 'partner')){
+                    usergrpid = "GRP1iped2p093cme0"
+                    segid = "SEGvqhkwzu90rr501746776094352"
                     city = $("#cityHeroSelect").val().trim();
                     coupon = $("#heroCoupon").val().trim();
                     if (city === "" || !nameRegex.test(city)) {
@@ -416,6 +424,14 @@
                         console.error("AJAX Error:", error);
                     }
                 });
+                //paidgrp:GRP1iped2p093cme0
+                //paidseg:SEG8jtr2wwqnne1d1746615195237
+
+
+                //partnergrp:GRP1iped2p093cme0
+                //partnerseg:SEGvqhkwzu90rr501746776094352
+
+
                 //Second: Submit to your API
                 $.ajax({
                     url: 'https://platformapi.teleforce.in/api/v1/api/createlead/181743',
@@ -427,8 +443,8 @@
                     mobile: whatsappNumber,
                     city: city,
                     source:"website",
-                    usergroupid: "GRP1iped2p093cme0", 
-                    segmentid: "SEG8jtr2wwqnne1d1746615195237", 
+                    usergroupid: usergrpid, 
+                    segmentid: segid, 
                     otherparams: [
                         { "meta_key": "coupon_code", "meta_value": coupon },
                         { "meta_key": "utm_source", "meta_value": utm_source },
