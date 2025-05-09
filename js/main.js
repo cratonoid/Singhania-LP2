@@ -127,12 +127,12 @@
         let otp = Math.floor(1000 + Math.random() * 9000);
         GlobalOtp = otp;
         let otpURL = "https://api2.nexgplatforms.com/sms/1/text/query?" +
-        "username=Vama&password=VamA@123!!&from=VAMAXT" +
+        "username=SinghaniaUni&password=Lotus@1965&from=SINUNV" +
         "&to=91" + whatsappNumber + // Use the entered number
-        "&indiaDltContentTemplateId=1207165155088104790" +
-        "&indiaDltPrincipalEntityId=1201161293682304526" +
+        "&indiaDltContentTemplateId=1707174668414758386" +
+        "&indiaDltPrincipalEntityId=1501426470000025315" +
         "&indiaDltTelemarketerId=1702171328200125899" +
-        "&text=" + encodeURIComponent(otp + " is your mobile verification code for VAMA");
+        "&text=" + encodeURIComponent(otp + " is your mobile verification code for Singhania University");
         $.ajax({
             url: otpURL,
             type: "GET",
@@ -302,12 +302,12 @@
             let otp = Math.floor(1000 + Math.random() * 9000);
             GlobalOtp = otp;
             let otpURL = "https://api2.nexgplatforms.com/sms/1/text/query?" +
-            "username=Vama&password=VamA@123!!&from=VAMAXT" +
+            "username=SinghaniaUni&password=Lotus@1965&from=SINUNV" +
             "&to=91" + whatsappNumber + // Use the entered number
-            "&indiaDltContentTemplateId=1207165155088104790" +
-            "&indiaDltPrincipalEntityId=1201161293682304526" +
+            "&indiaDltContentTemplateId=1707174668414758386" +
+            "&indiaDltPrincipalEntityId=1501426470000025315" +
             "&indiaDltTelemarketerId=1702171328200125899" +
-            "&text=" + encodeURIComponent(otp + " is your mobile verification code for VAMA");
+            "&text=" + encodeURIComponent(otp + " is your mobile verification code for Singhania University");
             $.ajax({
                 url: otpURL,
                 type: "GET",
