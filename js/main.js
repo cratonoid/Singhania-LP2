@@ -162,6 +162,8 @@
             // let connectTime = $("#connectTime").val();
             let url = sessionStorage.getItem("url");
             let utm_source = sessionStorage.getItem('utm_source');
+            let utm_medium = sessionStorage.getItem('utm_medium');
+            let utm_campaign = sessionStorage.getItem('utm_campaign');
             let otp = $("#otpPopup").val().trim();
             let programs = $("#programSelect").val();
             let coupon = "";
@@ -261,10 +263,11 @@
                     source:"website",
                     usergroupid: "GRP1iped2p093cme0", 
                     segmentid: "SEG8jtr2wwqnne1d1746615195237", 
-                    otherparams: [
-                        { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
+                    otherparams: [                        
                         { "meta_key": "coupon_code", "meta_value": coupon },
-                        { "meta_key": "utm_source", "meta_value": utm_source }
+                        { "meta_key": "utm_source", "meta_value": utm_source },
+                        { "meta_key": "utm_medium", "meta_value": utm_medium },
+                        { "meta_key": "utm_campaign", "meta_value": utm_campaign }
                         // ,
                         // { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
@@ -331,6 +334,8 @@
                 // let connectTime = $("#connectHeroTime").val();
                 let url = sessionStorage.getItem("url");
                 let utm_source = sessionStorage.getItem('utm_source');
+                let utm_medium = sessionStorage.getItem('utm_medium');
+                let utm_campaign = sessionStorage.getItem('utm_campaign');
                 let otp = $("#otp-input").val().trim();
                 let programs = $("#programHeroSelect").val();
                 let coupon = "";
@@ -418,7 +423,7 @@
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify({
-                        name: fullName,
+                    name: fullName,
                     email: email,
                     mobile: whatsappNumber,
                     city: city,
@@ -429,7 +434,9 @@
                     otherparams: [
                         { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
                         { "meta_key": "coupon_code", "meta_value": coupon },
-                        { "meta_key": "utm_source", "meta_value": utm_source }
+                        { "meta_key": "utm_source", "meta_value": utm_source },
+                        { "meta_key": "utm_medium", "meta_value": utm_medium },
+                        { "meta_key": "utm_campaign", "meta_value": utm_campaign }
                         // ,
                         // { "meta_key": "convenient_time", "meta_value": connectTime }
                     ]
@@ -448,211 +455,9 @@
                     window.location.href = "thankyou.html";
                 }, 500); // Redirect after 0.5 second
                 
-            });
+            });       
 
-        $("#submitApplication").click(function (event) {
-            event.preventDefault();
-
-            // Get input values
-            let fullName = $("#name").val().trim();
-            let whatsappNumber = $("#whatsapp").val().trim();
-            let email = $("#mainFormEmail").val().trim();
-            let city = $("#mainFormCity").val().trim();
-            // let connectTime = $("#mainFormTime").val();
-            let url = sessionStorage.getItem("url");
-           
-
-            // Validation Regex
-            let nameRegex = /^[a-zA-Z\s]+$/; 
-            let phoneRegex = /^[6-9]\d{9}$/;
-            let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
-
-            // Validation Checks
-            if (fullName === "" || !nameRegex.test(fullName)) {
-                swal("Invalid Name", "Please enter a valid full name (letters only).", "error");
-                return;
-            }
-            if (whatsappNumber === "" || !phoneRegex.test(whatsappNumber)) {
-                swal("Invalid Number", "Please enter a valid 10-digit WhatsApp number.", "error");
-                return;
-            }
-            if (email === "" || !emailRegex.test(email)) {
-                swal("Invalid Email", "Please enter a valid email address.", "error");
-                return;
-            }
-            if (city === "" || !nameRegex.test(city)) {
-                swal("Invalid City", "Please enter a valid city name (letters only).", "error");
-                return;
-            }
-            // if (connectTime === "") {
-            //     swal("Invalid Time", "Please select a convenient time to connect.", "error");
-            //     return;
-            // }
-
-            // Hide Modal on successful validation
-            $("#detailsModal").modal("hide");
-
-            let formData = {
-                "Full Name": fullName,
-                "WhatsApp Number": whatsappNumber,
-                "Email ID": email,
-                "City of Residence": city,
-                // "Convenient Time to Connect": connectTime,
-                "Url" : url,
-                "Lp name" : "Singhania_Law_2"
-            };
-
-            $.ajax({
-				url: scriptURL,
-				type: "POST",
-				data: formData,
-				contentType: "application/x-www-form-urlencoded",
-				success: function (response) {
-					console.log("Form submitted successfully", response);
-				},
-				error: function (xhr, status, error) {
-					console.error("AJAX Error:", error);
-				}
-			});
-
-            //Second: Submit to your API
-            $.ajax({
-                url: 'https://platformapi.teleforce.in/api/v1/api/createlead/181743',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    name: fullName,
-                    email: email,
-                    mobile: whatsappNumber,
-                    city: city,
-                    address: "address", // Replace with actual address if available
-                    source:"website",
-                    usergroupid: "GRP1iped2p093cme0", 
-                    segmentid: "SEG8jtr2wwqnne1d1746615195237", 
-                    otherparams: [
-                        { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
-                        { "meta_key": "coupon_code", "meta_value": coupon },
-                        { "meta_key": "utm_source", "meta_value": utm_source }
-                        // ,
-                        // { "meta_key": "convenient_time", "meta_value": connectTime }
-                    ]
-                }),
-                success: function (response) {
-                    console.log("API lead created successfully", response);
-                },
-                error: function (xhr, status, error) {
-                    console.error("Lead API Error:", error);
-                }
-            });
-			
-			// Redirect without waiting for the server
-			setTimeout(() => {
-				window.location.href = "thankyou.html";
-			}, 500); // Redirect after 0.5 second
-			
-        });
-
-        $("#SecondFormSubmitApplication").click(function (event) {
-            event.preventDefault();
-
-            // Get input values
-            let fullName = $("#secondFormName").val().trim();
-            let whatsappNumber = $("#secondFormWhatsapp").val().trim();
-            let email = $("#secondFormEmail").val().trim();
-            let city = $("#secondFormCity").val().trim();
-            // let connectTime = $("#secondFormTime").val();
-            let url = sessionStorage.getItem("url");
-           
-
-            // Validation Regex
-            let nameRegex = /^[a-zA-Z\s]+$/; 
-            let phoneRegex = /^[6-9]\d{9}$/;
-            let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
-
-            // Validation Checks
-            if (fullName === "" || !nameRegex.test(fullName)) {
-                swal("Invalid Name", "Please enter a valid full name (letters only).", "error");
-                return;
-            }
-            if (whatsappNumber === "" || !phoneRegex.test(whatsappNumber)) {
-                swal("Invalid Number", "Please enter a valid 10-digit WhatsApp number.", "error");
-                return;
-            }
-            if (email === "" || !emailRegex.test(email)) {
-                swal("Invalid Email", "Please enter a valid email address.", "error");
-                return;
-            }
-            if (city === "" || !nameRegex.test(city)) {
-                swal("Invalid City", "Please enter a valid city name (letters only).", "error");
-                return;
-            }
-            // if (connectTime === "") {
-            //     swal("Invalid Time", "Please select a convenient time to connect.", "error");
-            //     return;
-            // }
-
-            // Hide Modal on successful validation
-            $("#detailsModal").modal("hide");
-
-            let formData = {
-                "Full Name": fullName,
-                "WhatsApp Number": whatsappNumber,
-                "Email ID": email,
-                "City of Residence": city,
-                // "Convenient Time to Connect": connectTime,
-                "Url" : url,
-                "Lp name" : "Singhania_Law_2"
-            };
-
-            $.ajax({
-				url: scriptURL,
-				type: "POST",
-				data: formData,
-				contentType: "application/x-www-form-urlencoded",
-				success: function (response) {
-					console.log("Form submitted successfully", response);
-				},
-				error: function (xhr, status, error) {
-					console.error("AJAX Error:", error);
-				}
-			});
-
-            //Second: Submit to your API
-            $.ajax({
-                url: 'https://platformapi.teleforce.in/api/v1/api/createlead/181743',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    name: fullName,
-                    email: email,
-                    mobile: whatsappNumber,
-                    city: city,
-                    address: "address", // Replace with actual address if available
-                    source:"website",
-                    usergroupid: "GRP1iped2p093cme0", 
-                    segmentid: "SEG8jtr2wwqnne1d1746615195237", 
-                    otherparams: [
-                        { "meta_key": "lead_name", "meta_value": "SU2_2025_EDXSO_DIGITAL" },
-                        { "meta_key": "coupon_code", "meta_value": coupon },
-                        { "meta_key": "utm_source", "meta_value": utm_source }
-                        // ,
-                        // { "meta_key": "convenient_time", "meta_value": connectTime }
-                    ]
-                }),
-                success: function (response) {
-                    console.log("API lead created successfully", response);
-                },
-                error: function (xhr, status, error) {
-                    console.error("Lead API Error:", error);
-                }
-            });
-			
-			// Redirect without waiting for the server
-			setTimeout(() => {
-				window.location.href = "thankyou.html";
-			}, 500); // Redirect after 0.5 second
-			
-        });
+        
     
 })(jQuery);
 
