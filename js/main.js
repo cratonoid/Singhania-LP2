@@ -259,7 +259,6 @@
                     email: email,
                     mobile: whatsappNumber,
                     city: city,
-                    address: "address", // Replace with actual address if available
                     source:"website",
                     usergroupid: "GRP1iped2p093cme0", 
                     segmentid: "SEG8jtr2wwqnne1d1746615195237", 
@@ -427,7 +426,6 @@
                     email: email,
                     mobile: whatsappNumber,
                     city: city,
-                    address: "address", // Replace with actual address if available
                     source:"website",
                     usergroupid: "GRP1iped2p093cme0", 
                     segmentid: "SEG8jtr2wwqnne1d1746615195237", 
