@@ -295,7 +295,7 @@
                     email: email,
                     mobile: whatsappNumber,
                     sourceName: utm_medium,
-                    campignName: utm_campaign,
+                    campignName: utm_source,
                     promocode: coupon
                 }),
                 success: function (response) {
@@ -498,7 +498,7 @@
                         email: email,
                         mobile: whatsappNumber,
                         sourceName: utm_medium,
-                        campignName: utm_campaign,
+                        campignName: utm_source,
                         promocode: coupon
                     }),
                     success: function (response) {
