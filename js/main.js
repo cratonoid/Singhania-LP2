@@ -263,7 +263,7 @@
                     email: email,
                     mobile: whatsappNumber,
                     city: city,
-                    source:"website",
+                    source: utm_medium,
                     usergroupid: usergrpid, 
                     segmentid: segid, 
                     otherparams: [                        
@@ -282,6 +282,30 @@
                     console.error("Lead API Error:", error);
                 }
             });
+
+            $.ajax({
+                url: 'http://65.0.217.228/validateAndSaveApplicantUserRegistrationData.json',
+                type: 'POST',
+                contentType: 'application/json',
+                headers: {
+                    'Authorization': '123456',
+                },
+                data: JSON.stringify({
+                    name: fullName,
+                    email: email,
+                    mobile: whatsappNumber,
+                    sourceName: utm_medium,
+                    campignName: utm_campaign,
+                    promocode: coupon
+                }),
+                success: function (response) {
+                    console.log("Third API call successful", response);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Third API Error:", error);
+                }
+            });
+            
             
 			
 			// Redirect without waiting for the server
@@ -442,7 +466,7 @@
                     email: email,
                     mobile: whatsappNumber,
                     city: city,
-                    source:"website",
+                    source:utm_medium,
                     usergroupid: usergrpid, 
                     segmentid: segid, 
                     otherparams: [
@@ -459,6 +483,29 @@
                     },
                     error: function (xhr, status, error) {
                         console.error("Lead API Error:", error);
+                    }
+                });
+
+                $.ajax({
+                    url: 'http://65.0.217.228/validateAndSaveApplicantUserRegistrationData.json',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    headers: {
+                        'Authorization': '123456',
+                    },
+                    data: JSON.stringify({
+                        name: fullName,
+                        email: email,
+                        mobile: whatsappNumber,
+                        sourceName: utm_medium,
+                        campignName: utm_campaign,
+                        promocode: coupon
+                    }),
+                    success: function (response) {
+                        console.log("Third API call successful", response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Third API Error:", error);
                     }
                 });
                 
