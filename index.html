@@ -198,11 +198,10 @@
 @media (max-width: 768px) {
     .heroSection {
         background: url('img/banner_mob_mainn.png') no-repeat top center; /* Align to top */
-        background-size: 100% auto;
+        background-size: cover;
         height: auto; 
-        aspect-ratio: 9 / 16;
-        width: 100vw;
-        min-height: 125vh !important; /* Ensure space at bottom */
+        overflow: visible;
+        min-height: auto !important; /* Ensure space at bottom */
     }
     .apply-btn {
         transform: translateX(-10%) translateY(-120px);
@@ -392,10 +391,13 @@
         color: #ffffff !important;
     }
     .hero-content {
+        position: relative !important;
+        padding: 0 4%;
+
+
         align-items: flex-start;
-        margin-top: 10rem;
-        display: grid;
-        padding-bottom: 11rem;
+        margin-top: 0%;
+        padding-top: 35%;
      }
 
     .left-content, .right-form {
