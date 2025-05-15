@@ -283,48 +283,29 @@
                 }
             });
 
-            // $.ajax({
-            //     url: 'http://65.0.217.228/validateAndSaveApplicantUserRegistrationData.json',
-            //     type: 'POST',
-            //     contentType: 'application/json',
-            //     headers: {
-            //         'Authorization': '123456',
-            //     },
-            //     data: JSON.stringify({
-            //         name: fullName,
-            //         email: email,
-            //         mobile: whatsappNumber,
-            //         sourceName: utm_medium,
-            //         campignName: utm_source,
-            //         promocode: coupon
-            //     }),
-            //     success: function (response) {
-            //         console.log("Third API call successful", response);
-            //     },
-            //     error: function (xhr, status, error) {
-            //         console.error("Third API Error:", error);
-            //     }
-            // });
-
             $.ajax({
-                  url: 'https://su-middleware.onrender.com/proxy',
-                  type: 'POST',
-                  contentType: 'application/json',
-                  data: JSON.stringify({
+                url: 'https://erp.singhaniauniversity.ac.in/validateAndSaveApplicantUserRegistrationData.json',
+                type: 'POST',
+                contentType: 'application/json',
+                headers: {
+                    'Authorization': 'ADM NAICOLC+OIAP9UUD9NVACYI5ABQKKJ9A',
+                },
+                data: JSON.stringify({
                     name: fullName,
                     email: email,
                     mobile: whatsappNumber,
                     sourceName: utm_medium,
                     campignName: utm_source,
                     promocode: coupon
-                  }),
-                  success: function (response) {
-                    console.log("Third API call successful via proxy", response);
-                  },
-                  error: function (xhr, status, error) {
-                    console.error("Third API Proxy Error:", error);
-                  }
-                });
+                }),
+                success: function (response) {
+                    console.log("Third API call successful", response);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Third API Error:", error);
+                }
+            });
+
             
             
 			
@@ -506,48 +487,30 @@
                     }
                 });
 
-                // $.ajax({
-                //     url: 'http://65.0.217.228/validateAndSaveApplicantUserRegistrationData.json',
-                //     type: 'POST',
-                //     contentType: 'application/json',
-                //     headers: {
-                //         'Authorization': '123456',
-                //     },
-                //     data: JSON.stringify({
-                //         name: fullName,
-                //         email: email,
-                //         mobile: whatsappNumber,
-                //         sourceName: utm_medium,
-                //         campignName: utm_source,
-                //         promocode: coupon
-                //     }),
-                //     success: function (response) {
-                //         console.log("Third API call successful", response);
-                //     },
-                //     error: function (xhr, status, error) {
-                //         console.error("Third API Error:", error);
-                //     }
-                // });
-
                 $.ajax({
-                  url: 'https://su-middleware.onrender.com/proxy',
-                  type: 'POST',
-                  contentType: 'application/json',
-                  data: JSON.stringify({
-                    name: fullName,
-                    email: email,
-                    mobile: whatsappNumber,
-                    sourceName: utm_medium,
-                    campignName: utm_source,
-                    promocode: coupon
-                  }),
-                  success: function (response) {
-                    console.log("Third API call successful via proxy", response);
-                  },
-                  error: function (xhr, status, error) {
-                    console.error("Third API Proxy Error:", error);
-                  }
+                    url: 'https://erp.singhaniauniversity.ac.in/validateAndSaveApplicantUserRegistrationData.json',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    headers: {
+                        'Authorization': 'ADM NAICOLC+OIAP9UUD9NVACYI5ABQKKJ9A',
+                    },
+                    data: JSON.stringify({
+                        name: fullName,
+                        email: email,
+                        mobile: whatsappNumber,
+                        sourceName: utm_medium,
+                        campignName: utm_source,
+                        promocode: coupon
+                    }),
+                    success: function (response) {
+                        console.log("Third API call successful", response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Third API Error:", error);
+                    }
                 });
+
+               
                 
                 
                 // Redirect without waiting for the server
