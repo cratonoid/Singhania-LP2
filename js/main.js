@@ -335,7 +335,7 @@
 
             // Send to backend to trigger email
             $.ajax({
-                url: 'https://localhost:3000/send-admission-mail', // replace with your backend
+                url: 'https://singhaniauniversity.ac.in/apis/send-admission-mail.php', 
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -545,28 +545,83 @@
                     }
                 });
 
+                // $.ajax({
+                //     url: 'https://erp.singhaniauniversity.ac.in/validateAndSaveApplicantUserRegistrationData.json',
+                //     type: 'POST',
+                //     contentType: 'application/json',
+                //     headers: {
+                //         'Authorization': 'ADM NAICOLC+OIAP9UUD9NVACYI5ABQKKJ9A',
+                //     },
+                //     data: JSON.stringify({
+                //         name: fullName,
+                //         email: email,
+                //         mobile: whatsappNumber,
+                //         sourceName: utm_medium,
+                //         campignName: utm_source,
+                //         promocode: coupon
+                //     }),
+                //     success: function (response) {
+                //         console.log("Third API call successful", response);
+                //     },
+                //     error: function (xhr, status, error) {
+                //         console.error("Third API Error:", error);
+                //     }
+                // });
+
                 $.ajax({
-                    url: 'https://erp.singhaniauniversity.ac.in/validateAndSaveApplicantUserRegistrationData.json',
-                    type: 'POST',
-                    contentType: 'application/json',
-                    headers: {
-                        'Authorization': 'ADM NAICOLC+OIAP9UUD9NVACYI5ABQKKJ9A',
-                    },
-                    data: JSON.stringify({
-                        name: fullName,
-                        email: email,
-                        mobile: whatsappNumber,
-                        sourceName: utm_medium,
-                        campignName: utm_source,
-                        promocode: coupon
-                    }),
-                    success: function (response) {
-                        console.log("Third API call successful", response);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("Third API Error:", error);
-                    }
-                });
+    url: 'https://erp.singhaniauniversity.ac.in/validateAndSaveApplicantUserRegistrationData.json',
+    type: 'POST',
+    contentType: 'application/json',
+    headers: {
+        'Authorization': 'ADM NAICOLC+OIAP9UUD9NVACYI5ABQKKJ9A',
+    },
+    data: JSON.stringify({
+        name: fullName,
+        email: email,
+        mobile: whatsappNumber,
+        sourceName: utm_medium,
+        campignName: utm_source,
+        promocode: coupon
+    }),
+    success: function (response) {
+        console.log("Third API call successful", response);
+
+        if (response[0]?.status === "Success") {
+            const msg = response[0].message;
+            const userIdMatch = msg.match(/User Id\s*:\s*([^\s]+)/);
+            const passwordMatch = msg.match(/Password\s*:\s*([^\s]+)/);
+
+            const userId = userIdMatch ? userIdMatch[1] : "";
+            const password = passwordMatch ? passwordMatch[1] : "";
+
+            $.ajax({
+                url: 'https://singhaniauniversity.ac.in/apis/send-admission-mail.php',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    to: email,
+                    name: fullName,
+                    userId: userId,
+                    password: password
+                }),
+                success: function (res) {
+                    console.log("Email triggered successfully", res);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Email API Error:", error);
+                }
+            });
+
+        } else if (response[0]?.error === true) {
+            swal("Error", response[0].errorMsg, "error");
+        } else {
+            swal("Unexpected Response", "Please contact admin.", "warning");
+        }
+    },
+    error: function (xhr, status, error) {
+        console.error("Third API Error:", error);
+    }
+});
 
                
                 
