@@ -229,87 +229,14 @@
             // Hide Modal on successful validation
             $("#detailsModal").modal("hide");
 
-            let formData = {
-                "Full Name": fullName,
-                "WhatsApp Number": whatsappNumber,
-                "Email ID": email,
-                "City of Residence": city,
-                // "Convenient Time to Connect": connectTime,
-                "Program Name": programs,
-                "Url" : url,
-                "Lp name" : "Singhania_Law_2",
-                "coupon" : coupon_value
-            };
-
-            $.ajax({
-				url: scriptURL,
-				type: "POST",
-				data: formData,
-				contentType: "application/x-www-form-urlencoded",
-				success: function (response) {
-					console.log("Form submitted successfully", response);
-				},
-				error: function (xhr, status, error) {
-					console.error("AJAX Error:", error);
-				}
-			});
-            //Second: Submit to your API
-            $.ajax({
-                url: 'https://platformapi.teleforce.in/api/v1/api/createlead/181743',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    name: fullName,
-                    email: email,
-                    mobile: whatsappNumber,
-                    city: city,
-                    source: utm_medium,
-                    usergroupid: usergrpid, 
-                    segmentid: segid, 
-                    otherparams: [                        
-                        { "meta_key": "coupon_code", "meta_value": coupon },
-                        { "meta_key": "utm_source", "meta_value": utm_source },
-                        { "meta_key": "utm_medium", "meta_value": utm_medium },
-                        { "meta_key": "utm_campaign", "meta_value": utm_campaign }
-                        // ,
-                        // { "meta_key": "convenient_time", "meta_value": connectTime }
-                    ]
-                }),
-                success: function (response) {
-                    console.log("API lead created successfully", response);
-                },
-                error: function (xhr, status, error) {
-                    console.error("Lead API Error:", error);
-                }
-            });
-
-            // $.ajax({
-            //     url: 'https://erp.singhaniauniversity.ac.in/validateAndSaveApplicantUserRegistrationData.json',
-            //     type: 'POST',
-            //     contentType: 'application/json',
-            //     headers: {
-            //         'Authorization': 'ADM NAICOLC+OIAP9UUD9NVACYI5ABQKKJ9A',
-            //     },
-            //     data: JSON.stringify({
-            //         name: fullName,
-            //         email: email,
-            //         mobile: whatsappNumber,
-            //         sourceName: utm_medium,
-            //         campignName: utm_source,
-            //         promocode: coupon
-            //     }),
-            //     success: function (response) {
-            //         console.log("Third API call successful", response);
-            //     },
-            //     error: function (xhr, status, error) {
-            //         console.error("Third API Error:", error);
-            //     }
-            // });
+            
+           
 
             $.ajax({
     url: 'https://erp.singhaniauniversity.ac.in/validateAndSaveApplicantUserRegistrationData.json',
     type: 'POST',
     contentType: 'application/json',
+    dataType: 'json',
     headers: {
         'Authorization': 'ADM NAICOLC+OIAP9UUD9NVACYI5ABQKKJ9A',
     },
@@ -352,6 +279,69 @@
                 }
             });
 
+            let formData = {
+                "Full Name": fullName,
+                "WhatsApp Number": whatsappNumber,
+                "Email ID": email,
+                "City of Residence": city,
+                // "Convenient Time to Connect": connectTime,
+                "Program Name": programs,
+                "Url" : url,
+                "Lp name" : "Singhania_Law_2",
+                "coupon" : coupon_value
+            };
+
+            $.ajax({
+				url: scriptURL,
+				type: "POST",
+				data: formData,
+				contentType: "application/x-www-form-urlencoded",
+				success: function (response) {
+					console.log("Form submitted successfully", response);
+				},
+				error: function (xhr, status, error) {
+					console.error("AJAX Error:", error);
+				}
+			});
+            //Second: Submit to your API
+            $.ajax({
+                url: 'https://platformapi.teleforce.in/api/v1/api/createlead/181743',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    name: fullName,
+                    email: email,
+                    mobile: whatsappNumber,
+                    city: city,
+                    source: utm_medium,
+                    usergroupid: usergrpid, 
+                    segmentid: segid, 
+                    otherparams: [                        
+                        { "meta_key": "coupon_code", "meta_value": coupon },
+                        { "meta_key": "utm_source", "meta_value": utm_source },
+                        { "meta_key": "utm_medium", "meta_value": utm_medium },
+                        { "meta_key": "utm_campaign", "meta_value": utm_campaign }
+                        
+                    ]
+                }),
+                success: function (response) {
+                    console.log("API lead created successfully", response);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Lead API Error:", error);
+                }
+            });
+
+            // Redirect without waiting for the server
+			setTimeout(() => {
+				window.location.href = "thankyou.html";
+			}, 500); // Redirect after 0.5 second
+			
+  
+
+
+
+
         } else if (response[0]?.error === true) {
             swal("Error", response[0].errorMsg, "error");
         } else {
@@ -363,16 +353,11 @@
     }
 });
 
-
+      });
             
             
 			
-			// Redirect without waiting for the server
-			setTimeout(() => {
-				window.location.href = "thankyou.html";
-			}, 500); // Redirect after 0.5 second
 			
-        });
 
         $("#heroOtp").click(function (event){
             event.preventDefault();
@@ -482,96 +467,12 @@
                         return;
                     }
                 }
-    
-                let formData = {
-                    "Full Name": fullName,
-                    "WhatsApp Number": whatsappNumber,
-                    "Email ID": email,
-                    "City of Residence": city,
-                    // "Convenient Time to Connect": connectTime,
-                    "Program Name": programs,
-                    "Url" : url,
-                    "Lp name" : "Singhania_Law_2",
-                    "coupon" : coupon_value
-                };
-    
-                $.ajax({
-                    url: scriptURL,
-                    type: "POST",
-                    data: formData,
-                    contentType: "application/x-www-form-urlencoded",
-                    success: function (response) {
-                        console.log("Form submitted successfully", response);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("AJAX Error:", error);
-                    }
-                });
-                //paidgrp:GRP1iped2p093cme0
-                //paidseg:SEG8jtr2wwqnne1d1746615195237
-
-
-                //partnergrp:GRP1iped2p093cme0
-                //partnerseg:SEGvqhkwzu90rr501746776094352
-
-
-                //Second: Submit to your API
-                $.ajax({
-                    url: 'https://platformapi.teleforce.in/api/v1/api/createlead/181743',
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                    name: fullName,
-                    email: email,
-                    mobile: whatsappNumber,
-                    city: city,
-                    source:utm_medium,
-                    usergroupid: usergrpid, 
-                    segmentid: segid, 
-                    otherparams: [
-                        { "meta_key": "coupon_code", "meta_value": coupon },
-                        { "meta_key": "utm_source", "meta_value": utm_source },
-                        { "meta_key": "utm_medium", "meta_value": utm_medium },
-                        { "meta_key": "utm_campaign", "meta_value": utm_campaign }
-                        // ,
-                        // { "meta_key": "convenient_time", "meta_value": connectTime }
-                    ]
-                    }),
-                    success: function (response) {
-                        console.log("API lead created successfully", response);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("Lead API Error:", error);
-                    }
-                });
-
-                // $.ajax({
-                //     url: 'https://erp.singhaniauniversity.ac.in/validateAndSaveApplicantUserRegistrationData.json',
-                //     type: 'POST',
-                //     contentType: 'application/json',
-                //     headers: {
-                //         'Authorization': 'ADM NAICOLC+OIAP9UUD9NVACYI5ABQKKJ9A',
-                //     },
-                //     data: JSON.stringify({
-                //         name: fullName,
-                //         email: email,
-                //         mobile: whatsappNumber,
-                //         sourceName: utm_medium,
-                //         campignName: utm_source,
-                //         promocode: coupon
-                //     }),
-                //     success: function (response) {
-                //         console.log("Third API call successful", response);
-                //     },
-                //     error: function (xhr, status, error) {
-                //         console.error("Third API Error:", error);
-                //     }
-                // });
 
                 $.ajax({
     url: 'https://erp.singhaniauniversity.ac.in/validateAndSaveApplicantUserRegistrationData.json',
     type: 'POST',
     contentType: 'application/json',
+    dataType: 'json',
     headers: {
         'Authorization': 'ADM NAICOLC+OIAP9UUD9NVACYI5ABQKKJ9A',
     },
@@ -612,27 +513,96 @@
                 }
             });
 
+            let formData = {
+                    "Full Name": fullName,
+                    "WhatsApp Number": whatsappNumber,
+                    "Email ID": email,
+                    "City of Residence": city,
+                    "Program Name": programs,
+                    "Url" : url,
+                    "Lp name" : "Singhania_Law_2",
+                    "coupon" : coupon_value
+                };
+    
+                $.ajax({
+                    url: scriptURL,
+                    type: "POST",
+                    data: formData,
+                    contentType: "application/x-www-form-urlencoded",
+                    success: function (response) {
+                        console.log("Form submitted successfully", response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error:", error);
+                    }
+                });
+
+                //Second: Submit to your API
+                $.ajax({
+                    url: 'https://platformapi.teleforce.in/api/v1/api/createlead/181743',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                    name: fullName,
+                    email: email,
+                    mobile: whatsappNumber,
+                    city: city,
+                    source:utm_medium,
+                    usergroupid: usergrpid, 
+                    segmentid: segid, 
+                    otherparams: [
+                        { "meta_key": "coupon_code", "meta_value": coupon },
+                        { "meta_key": "utm_source", "meta_value": utm_source },
+                        { "meta_key": "utm_medium", "meta_value": utm_medium },
+                        { "meta_key": "utm_campaign", "meta_value": utm_campaign }
+                        
+                    ]
+                    }),
+                    success: function (response) {
+                        console.log("API lead created successfully", response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Lead API Error:", error);
+                    }
+                });
+            
+                // Redirect without waiting for the server
+                setTimeout(() => {
+                    window.location.href = "thankyou.html";
+                }, 500); // Redirect after 0.5 second
+                
+                 
+
+
         } else if (response[0]?.error === true) {
             swal("Error", response[0].errorMsg, "error");
         } else {
-            swal("Unexpected Response", "Please contact admin.", "warning");
+            swal("Alert", "User Already Exists.", "warning");
         }
     },
     error: function (xhr, status, error) {
         console.error("Third API Error:", error);
     }
 });
+    
+                
+                //paidgrp:GRP1iped2p093cme0
+                //paidseg:SEG8jtr2wwqnne1d1746615195237
+
+
+                //partnergrp:GRP1iped2p093cme0
+                //partnerseg:SEGvqhkwzu90rr501746776094352
+
+
+                
+
+}); 
+                
 
                
                 
                 
-                // Redirect without waiting for the server
-                setTimeout(() => {
-                    window.location.href = "thankyou.html";
-                }, 500); // Redirect after 0.5 second
                 
-            });       
-
         
     
 })(jQuery);
